@@ -34,7 +34,7 @@ const Hero = () => {
           <HeroItems>
             <HeroH1>Windy Hills</HeroH1>
             <HeroP>Wine and fine dining</HeroP>
-            <HeroBtn onClick={handleClickScroll}>Резервирайте маса</HeroBtn>
+            <HeroBtn onClick={handleClickScroll}>Направете Резервация</HeroBtn>
           </HeroItems>
         </HeroContent>
       </HeroContainer>

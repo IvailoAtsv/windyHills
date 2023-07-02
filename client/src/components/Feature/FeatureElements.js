@@ -35,7 +35,7 @@ export const FeatureButton = styled.button`
   font-size: 1.3rem;
   padding: 0.6rem 3rem;
   border: none;
-  background: #38cb82;
+  background: #87ceeb;
   color: #000;
   transition: 0.2s ease-out;
 

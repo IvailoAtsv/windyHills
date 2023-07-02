@@ -10,6 +10,7 @@ column-gap:2rem;
 align-items:center;
 background-color: black;
 padding:2rem ;
+
 @media only screen and (max-width: 720px){
     display: flex;
     flex-direction: column;
@@ -21,6 +22,8 @@ padding-top: 2rem;
 font-size: 1.5rem;
 color : white;
 font-weight:550;
+text-align:center;
+padding-bottom:2rem;
 `
 
 export const ReservationLabel = styled.label`
@@ -40,6 +43,7 @@ export const ReservationInput = styled.input`
     border-radius: 4px;
     text-align:center;
     @media only screen and (max-width: 720px){
+        width:100%;
         display: flex;
         flex-direction: column;
         
