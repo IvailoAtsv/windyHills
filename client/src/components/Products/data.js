@@ -1,6 +1,6 @@
-import product1 from '../../images/chiken-rosemary.jpg';
-import product2 from '../../images/meatballs.jpg';
-import product3 from '../../images/pork.jpg';
+import product1 from '../../images/food1.png';
+import product2 from '../../images/food2.png';
+import product3 from '../../images/food3.png';
 import sweet1 from '../../images/merlot.jpg';
 import sweet2 from '../../images/muscat.jpg';
 import sweet3 from '../../images/mavrud.jpg';
@@ -9,26 +9,25 @@ export const productData = [
   {
     img: product1,
     alt: 'Пилешко филе',
-    name: 'Пилешко филе с розмарин на плоча',
+    name: 'Бавно печен свински врат',
     desc:
-      'поднесена със сотирани чери домати и спанак',
+    'свински врат, печен на бавен огън с канапе от картофено пюро, поднесен със сотирани картофи',
     price: '$14.89',
     
   },
   {
     img: product2,
-    alt: 'Домашно кюфте',
-    name: 'Домашно кюфте от мляно месо от близката ферма',
+    alt: 'Smoked salmon salad', 
+    name: 'Салата с пушена сьомга',
     desc:
-      'поднесено с чушково - доматена салца и хрупкави картофки',
+      'Салата с пушена сьомга и сирене халуми',
     price: '$10.89',
   },
   {
     img: product3,
     alt: '',
-    name: 'Бавно печен свински врат',
-    desc:
-      'свински врат, печен на бавен огън с канапе от картофено пюро, поднесен със сотирани картофи',
+    name: 'Фермерска дъска',
+    desc: 'поднесена с колекция от подбрани регионални сирена и кашкавали',
     price: '$18.89',
   }
 ];

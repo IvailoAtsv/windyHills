@@ -14,11 +14,11 @@ padding:2rem ;
 @media only screen and (max-width: 720px){
     display: flex;
     flex-direction: column;
+    row-gap: 0px;
 }
 `
 
 export const ReservationTitle = styled.span`
-padding-top: 2rem;
 font-size: 1.5rem;
 color : white;
 font-weight:550;
@@ -53,7 +53,7 @@ export const DateTimeContainer = styled.div`
 display: flex;
 gap:3rem;
 flex-direction: row;
-padding-top:6.5rem;
+padding-top:5.5rem;
 @media only screen and (max-width: 720px){
     display: flex;
     flex-direction: column;
@@ -61,6 +61,7 @@ padding-top:6.5rem;
 `
 export const ReservationInputContainer = styled.div`
 display:flex;
+padding-bottom:1rem;
 flex-direction:column;
 @media only screen and (max-width: 720px){
     width: 80%;

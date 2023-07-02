@@ -6,14 +6,21 @@ export const ProductsContainer = styled.div`
   padding: 5rem calc((100vw - 1300px) / 2);
   background: #150f0f;
   color: #fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 `;
 
 export const ProductWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0   ;
+  @media only screen and (max-width:720px){
+    flex-direction:column;
+  }
 `;
+
 
 export const ProductCard = styled.div`
   margin: 0 2rem;
@@ -65,10 +72,6 @@ export const ProductButton = styled.button`
   background: #87ceeb;
   color: #000;
   transition: 0.2 ease-out;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   &:hover {
     background: #87ceeb;
     transition: 0.2s ease-out;

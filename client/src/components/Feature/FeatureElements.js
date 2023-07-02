@@ -6,7 +6,7 @@ export const FeatureContainer = styled.div`
     url(${FeaturePic});
   height: 100vh;
   object-fit:contain;
-  max-height: 50vh;
+  max-height: 65vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -21,7 +21,9 @@ export const FeatureContainer = styled.div`
   color: #fff;
   text-align: center;
   padding: 0 1rem;
-
+  @media only screen and (max-width:720px){
+    max-height:70vh;
+  }
   h1 {
     font-size: clamp(3rem, 5vw, 5rem);
   }
@@ -41,7 +43,6 @@ export const FeatureButton = styled.button`
 
   &:hover {
     scale: 1.05;
-    transition: 0.2s ease-out;
     cursor: pointer;
   }
 `;

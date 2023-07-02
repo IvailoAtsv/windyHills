@@ -13,7 +13,7 @@ function App() {
     <Router>
       <GlobalStyle />
       <Hero />
-      <Products heading='Най-популярни' data={productData} />
+      <Products heading='Предложения от нашата кухня' data={productData} />
       <Feature />
       {/* <Products heading='Вино от нашата винарна' data={productDataTwo} /> */}
       <Reservation />
