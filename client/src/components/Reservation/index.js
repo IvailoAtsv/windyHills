@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DateTimeContainer, ReservationContainer, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationSubmit, ReservationTitle } from "./ReservationElements"
+import { DateTimeContainer, ReservationContainer, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationShell, ReservationSubmit, ReservationTitle, TimeAndSubmitContainer } from "./ReservationElements"
 import Calendar from "react-calendar"
 import 'react-calendar/dist/Calendar.css';
 
@@ -68,29 +68,33 @@ const Reservation = () => {
 
 
     return (
-        <ReservationContainer id="reservation" onSubmit={onSubmitHandler}>
-            <ReservationInputContainer>
-                <ReservationTitle>Направете Резервация</ReservationTitle>
+        <ReservationShell>
+                    <ReservationTitle>Направете Резервация</ReservationTitle>
+            <ReservationContainer id="reservation" onSubmit={onSubmitHandler}>
+                <ReservationInputContainer>
 
-                <ReservationLabel> Име и Фамилия </ReservationLabel>
-                {!nameValid && <ReservationLabel style={{ color: "red" }}>Името трябва да съдържа над 3 символа</ReservationLabel>}
-                <ReservationInput name="name" onChange={onNameChange} />
-                <ReservationLabel> Телефон </ReservationLabel>
-                {!phoneValid && <ReservationLabel style={{ color: "red" }}>Невалиден телефонен номер</ReservationLabel>}
-                <ReservationInput name="phone" onChange={onPhoneChange} />
-                {!emailValid && <ReservationLabel style={{ color: "red" }}>Невалиден e-mail</ReservationLabel>}
-                <ReservationLabel> Имейл </ReservationLabel>
-                <ReservationInput name="email" onChange={onEmailChange} />
-                <ReservationLabel> Детайли </ReservationLabel>
-                <ReservationInput name="details" />
-            </ReservationInputContainer>
-            <DateTimeContainer>
-                <Calendar minDate={new Date()} onClickDay={(date) => setDate(date)} />
-                {!timeValid && <ReservationLabel>Невалиден час!</ReservationLabel>}
-                <TimePicker onChange={onChange} size="large" disabledHours={() => { return [0, 1, 2, 3, 4, 5, 6, 7, 8, 22, 23] }} changeOnBlur={true} showNow={false} minuteStep={15} secondStep={59} disabledSeconds={() => { return [59] }} hideDisabledOptions={true} />
-            </DateTimeContainer>
-            <ReservationSubmit>Изпрати</ReservationSubmit>
-        </ReservationContainer>
+                    <ReservationLabel> Име и Фамилия </ReservationLabel>
+                    {!nameValid && <ReservationLabel style={{ color: "red" }}>Името трябва да съдържа над 3 символа</ReservationLabel>}
+                    <ReservationInput name="name" onChange={onNameChange} />
+                    <ReservationLabel> Телефон </ReservationLabel>
+                    {!phoneValid && <ReservationLabel style={{ color: "red" }}>Невалиден телефонен номер</ReservationLabel>}
+                    <ReservationInput name="phone" onChange={onPhoneChange} />
+                    {!emailValid && <ReservationLabel style={{ color: "red" }}>Невалиден e-mail</ReservationLabel>}
+                    <ReservationLabel> Имейл </ReservationLabel>
+                    <ReservationInput name="email" onChange={onEmailChange} />
+                    <ReservationLabel> Детайли </ReservationLabel>
+                    <ReservationInput name="details" />
+                </ReservationInputContainer>
+                <DateTimeContainer>
+                    <Calendar minDate={new Date()} onClickDay={(date) => setDate(date)} />
+                    {!timeValid && <ReservationLabel>Невалиден час!</ReservationLabel>}
+                    <TimeAndSubmitContainer>
+                        <TimePicker onChange={onChange} size="small" disabledHours={() => { return [0, 1, 2, 3, 4, 5, 6, 7, 8, 22, 23] }} changeOnBlur={true} showNow={false} minuteStep={15} secondStep={59} disabledSeconds={() => { return [59] }} hideDisabledOptions={true} />
+                        <ReservationSubmit>Изпрати</ReservationSubmit>
+                    </TimeAndSubmitContainer>
+                </DateTimeContainer>
+            </ReservationContainer>
+            </ReservationShell>
     )
 }
 
