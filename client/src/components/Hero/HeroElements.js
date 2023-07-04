@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import ImgBg from '../../images/windy-hills-top-view.jpg';
-import { MdRestaurantMenu } from 'react-icons/md'
 
 export const BgContainer = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url(${ImgBg});

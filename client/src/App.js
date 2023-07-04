@@ -21,6 +21,7 @@ function App() {
       <Footer />
       </Route>
       <Route path="/admin">
+      <GlobalStyle />
         <Admin />
       </Route>
     </Router>
