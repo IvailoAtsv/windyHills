@@ -7,18 +7,22 @@ import { productData } from './components/Products/data';
 import Feature from './components/Feature';
 import Footer from './components/Footer';
 import Reservation from './components/Reservation';
+import Admin from './components/Admin';
 
 function App() {
   return (
     <Router>
-      <Route path="/">
+      <Route exact path="/">
         <GlobalStyle />
         <Hero />
         <Products heading='Предложения от нашата кухня' data={productData} />
         <Feature />
       <Reservation />
-      </Route>
       <Footer />
+      </Route>
+      <Route path="/admin">
+        <Admin />
+      </Route>
     </Router>
   );
 }

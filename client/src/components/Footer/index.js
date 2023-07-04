@@ -33,7 +33,7 @@ const Footer = () => {
           <SocialMediaWrap>
             <SocialLogo to='#' onClick = { handleClickScroll }>Windy Hills</SocialLogo>
             <SocialIcons>
-              <SocialIconLink href='/' target='_blank' aria-label='Facebook'>
+              <SocialIconLink href='https://www.facebook.com/windy.hills.12/?locale=bg_BG' target='_blank' aria-label='Facebook'>
                 <FaFacebook />
               </SocialIconLink>
             </SocialIcons>
