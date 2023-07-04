@@ -86,7 +86,7 @@ const Reservation = () => {
                     <ReservationInput name="details" />
                 </ReservationInputContainer>
                 <DateTimeContainer>
-                    <Calendar minDate={new Date()} onClickDay={(date) => setDate(date)} />
+                    <Calendar minDate={new Date()} maxDate={new Date(Date.now() + 12096e5)} onClickDay={(date) => setDate(date)} />
                     {!timeValid && <ReservationLabel>Невалиден час!</ReservationLabel>}
                     <TimeAndSubmitContainer>
                         <TimePicker onChange={onChange} size="small" disabledHours={() => { return [0, 1, 2, 3, 4, 5, 6, 7, 8, 22, 23] }} changeOnBlur={true} showNow={false} minuteStep={15} secondStep={59} disabledSeconds={() => { return [59] }} hideDisabledOptions={true} />

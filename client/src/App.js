@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { GlobalStyle } from './globalStyles';
 import Hero from './components/Hero';
 import Products from './components/Products';
@@ -11,12 +11,13 @@ import Reservation from './components/Reservation';
 function App() {
   return (
     <Router>
-      <GlobalStyle />
-      <Hero />
-      <Products heading='Предложения от нашата кухня' data={productData} />
-      <Feature />
-      {/* <Products heading='Вино от нашата винарна' data={productDataTwo} /> */}
+      <Route path="/">
+        <GlobalStyle />
+        <Hero />
+        <Products heading='Предложения от нашата кухня' data={productData} />
+        <Feature />
       <Reservation />
+      </Route>
       <Footer />
     </Router>
   );

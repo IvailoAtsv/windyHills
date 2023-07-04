@@ -69,11 +69,10 @@ export const ProductButton = styled.button`
   font-size: 1.3rem;
   padding: 0.8rem 0.5rem;
   border: none;
-  background: #87ceeb;
+  background: white;
   color: #000;
   transition: 0.2 ease-out;
   &:hover {
-    background: #87ceeb;
     transition: 0.2s ease-out;
     cursor: pointer;
     scale: 1.05;

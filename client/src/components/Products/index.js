@@ -12,10 +12,14 @@ import {
   ProductButton
 } from './ProductsElements';
 
+const getThree = () => {
+  
+}
+
 const Products = ({ heading, data }) => {
   return (
     <ProductsContainer>
-      <ProductsHeading>{heading}</ProductsHeading>
+      <ProductsHeading>Предложения от нашата кухня</ProductsHeading>
       <ProductWrapper>
         {data.map((product, index) => {
           return (

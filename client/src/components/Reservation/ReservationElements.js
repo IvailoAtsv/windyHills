@@ -16,12 +16,13 @@ align:center;
 display:flex;
 flex-direction:row;
 gap: 2rem;
+flex-flow:flow;
 background-color: black;
 padding:2rem ;
 align-items:center;
 justify-content:center;
 padding-bottom:5rem;
-@media only screen and (max-width: 720px){
+@media only screen and (max-width: 1024px){
     flex-direction: column;
 }
 `
@@ -48,7 +49,7 @@ export const ReservationInput = styled.input`
     outline: none;
     border: 1px solid black;
     padding: 0.3rem auto;
-    font-size: 14px;
+    font-size: 1.5rem;
     border-radius: 4px;
     text-align:center;
     @media only screen and (max-width: 720px){
@@ -69,7 +70,7 @@ top:0.9rem;
 }
 `
 export const ReservationInputContainer = styled.div`
-width:20%;
+width:30%;
 display:flex;
 flex-direction:column;
 padding-bottom:1rem;
@@ -92,4 +93,8 @@ height: 2.9rem;
 border-radius:5px;
 border:none;
 font-weight:600;
+&:hover {
+    transition: 0.2s ease-out;
+    scale:1.05;
+  }
 `
