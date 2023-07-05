@@ -8,4 +8,12 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Kanit', sans-serif;
     
   }
+  @keyframes slideInFromLeft {
+    0% {s
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 `;

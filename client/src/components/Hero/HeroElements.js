@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import ImgBg from '../../images/windy-hills-top-view.jpg';
 
 export const BgContainer = styled.div`
@@ -14,6 +14,14 @@ export const BgContainer = styled.div`
     filter: blur(5px);
 }
 `
+const slideInFromLeft = keyframes`
+0% {
+  transform: translateX(-100%);
+}
+100% {
+  transform: translateX(0);
+}
+`;
 
 export const HeroContainer = styled.div`
   height: 100vh;
@@ -41,9 +49,13 @@ export const HeroItems = styled.div`
   line-height: 1;
   font-weight: bold;
 
+  animation-name: 1s ease-out 0s 1 ${slideInFromLeft};
+  animation-duration:1s;
+
   @media screen and (max-width: 650px) {
     width: 100%;
   }
+
 `;
 
 export const HeroH1 = styled.h1`
@@ -75,4 +87,5 @@ export const HeroBtn = styled.button`
     color: #000;
     scale: 1.05;
   }
-`;
+  `
+ 

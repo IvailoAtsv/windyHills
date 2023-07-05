@@ -8,7 +8,7 @@ import Feature from './components/Feature';
 import Footer from './components/Footer';
 import Reservation from './components/Reservation';
 import Admin from './components/Admin';
-
+import Menu from './components/Menu'
 function App() {
   return (
     <Router>
@@ -17,12 +17,16 @@ function App() {
         <Hero />
         <Products heading='Предложения от нашата кухня' data={productData} />
         <Feature />
-      <Reservation />
-      <Footer />
+        <Reservation />
+        <Footer />
       </Route>
       <Route path="/admin">
-      <GlobalStyle />
+        <GlobalStyle />
         <Admin />
+      </Route>
+      <Route path="/menu">
+      <GlobalStyle />
+        <Menu />
       </Route>
     </Router>
   );
