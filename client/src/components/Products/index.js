@@ -9,7 +9,8 @@ import {
   ProductInfo,
   ProductDesc,
   ProductPrice,
-  ProductButton
+  ProductButton,
+  RedirectButton
 } from './ProductsElements';
 
 const getThree = () => {
@@ -34,7 +35,7 @@ const Products = ({ heading, data }) => {
           );
         })}
       </ProductWrapper>
-        <ProductButton>Разгледайте Меню</ProductButton>
+        <RedirectButton to="/menu">Разгледайте Меню</RedirectButton>
     </ProductsContainer>
   );
 };

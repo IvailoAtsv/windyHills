@@ -8,21 +8,24 @@ import {
   SidebarRoute,
   SideBtnWrap
 } from './SidebarElements';
+import Reservation from '../Reservation';
 
 const Sidebar = ({ isOpen, toggle }) => {
+ 
+
+
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
         <CloseIcon />
       </Icon>
       <SidebarMenu>
-        <SidebarLink to='/'>Меню</SidebarLink>
+        <SidebarLink to='/menu'>Меню</SidebarLink>
         <SidebarLink to='/'>Контакти</SidebarLink>
         <SidebarLink to='/'>За Нас</SidebarLink>
       </SidebarMenu>
-      
+
       <SideBtnWrap>
-        <SidebarRoute to='/'>Направи резервация</SidebarRoute>
       </SideBtnWrap>
     </SidebarContainer>
   );

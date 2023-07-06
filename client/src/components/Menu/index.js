@@ -5,6 +5,9 @@ import product3 from '../../images/food3.png';
 import * as Products from '../Products/ProductsElements'
 
 const Menu = () => {
+    function sendHome(){
+
+    }
     const data = [
         {
           img: product1,
@@ -55,7 +58,7 @@ const Menu = () => {
                     );
                 })}
             </Products.ProductWrapper>
-            <Products.ProductButton>Разгледайте Меню</Products.ProductButton>
+            <Products.RedirectButton to='/'>Обратно</Products.RedirectButton>
         </Products.ProductsContainer>
 
     )

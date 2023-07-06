@@ -11,6 +11,7 @@ import {
   BgContainer,
 } from './HeroElements';
 
+
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,6 +26,7 @@ const Hero = () => {
       console.log('ne brat ne stava');
     }
   }
+  
   return (
     <BgContainer>
       <HeroContainer id='hero'>

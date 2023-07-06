@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const ProductsContainer = styled.div`
   /* width: 100vw; */
@@ -67,6 +68,7 @@ export const ProductPrice = styled.p`
 
 export const ProductButton = styled.button`
   font-size: 1.3rem;
+  text-decoration: none'
   padding: 0.8rem 0.5rem;
   border: none;
   background: white;
@@ -79,3 +81,19 @@ export const ProductButton = styled.button`
 
   }
 `;
+export const RedirectButton = styled(Link)`
+font-size: 1.3rem;
+text-decoration: none;
+padding: 0.8rem 0.5rem;
+border: none;
+background: white;
+color: #000;
+transition: 0.2 ease-out;
+&:hover {
+  transition: 0.2s ease-out;
+  cursor: pointer;
+  scale: 1.05;
+}
+  
+  `
+

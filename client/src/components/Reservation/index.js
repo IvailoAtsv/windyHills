@@ -2,7 +2,6 @@ import { useState } from "react";
 import { DateTimeContainer, ReservationContainer, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationShell, ReservationSubmit, ReservationTitle, TimeAndSubmitContainer } from "./ReservationElements"
 import Calendar from "react-calendar"
 import 'react-calendar/dist/Calendar.css';
-
 import dayjs from 'dayjs';
 import { TimePicker } from 'antd';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
@@ -21,10 +20,10 @@ const Reservation = () => {
         if (timeString.split(':')[0] < 9 || timeString.split(':')[0] > 21) {
             setTimeValid(false)
             console.log('false bro');
-        }else{
+        } else {
             setTimeValid(true)
         }
-        if(timeValid){
+        if (timeValid) {
             setTime(timeString)
         }
     }
@@ -69,20 +68,23 @@ const Reservation = () => {
 
     return (
         <ReservationShell>
-                    <ReservationTitle>Направете Резервация</ReservationTitle>
+            <ReservationTitle>Направете Резервация</ReservationTitle>
             <ReservationContainer id="reservation" onSubmit={onSubmitHandler}>
                 <ReservationInputContainer>
 
-                    <ReservationLabel> Име и Фамилия </ReservationLabel>
-                    {!nameValid && <ReservationLabel style={{ color: "red" }}>Името трябва да съдържа над 3 символа</ReservationLabel>}
+                    {!nameValid
+                        ? <ReservationLabel style={{ color: "red" }}>Името трябва да съдържа над 3 символа</ReservationLabel>
+                        : <ReservationLabel>Име и Фамилия</ReservationLabel>}
                     <ReservationInput name="name" onChange={onNameChange} />
-                    <ReservationLabel> Телефон </ReservationLabel>
-                    {!phoneValid && <ReservationLabel style={{ color: "red" }}>Невалиден телефонен номер</ReservationLabel>}
+                    {!phoneValid
+                        ? <ReservationLabel style={{ color: "red" }}>Невалиден телефонен номер</ReservationLabel>
+                        : <ReservationLabel> Телефон </ReservationLabel>}
                     <ReservationInput name="phone" onChange={onPhoneChange} />
-                    {!emailValid && <ReservationLabel style={{ color: "red" }}>Невалиден e-mail</ReservationLabel>}
-                    <ReservationLabel> Имейл </ReservationLabel>
+                    {!emailValid 
+                        ?<ReservationLabel style={{ color: "red" }}>Невалиден e-mail</ReservationLabel>
+                        :<ReservationLabel> Имейл </ReservationLabel>}
                     <ReservationInput name="email" onChange={onEmailChange} />
-                    <ReservationLabel> Детайли </ReservationLabel>
+                        <ReservationLabel> Детайли </ReservationLabel>
                     <ReservationInput name="details" />
                 </ReservationInputContainer>
                 <DateTimeContainer>
@@ -94,7 +96,7 @@ const Reservation = () => {
                     </TimeAndSubmitContainer>
                 </DateTimeContainer>
             </ReservationContainer>
-            </ReservationShell>
+        </ReservationShell>
     )
 }
 
