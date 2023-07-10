@@ -1,18 +1,14 @@
 {
   "name": "react-windy-hills-website-v1",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "antd": "^5.6.3",
     "dayjs": "^1.11.9",
     "react": "^18.2.0",
     "react-calendar": "^4.3.0",
     "react-dom": "^18.2.0",
     "react-icons": "^3.11.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "styled-components": "^5.2.1",
     "web-vitals": "^2.1.4"
   },
@@ -24,8 +20,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -33,11 +28,6 @@
       ">0.2%",
       "not dead",
       "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
     ]
   },
   "main": "index.js",
@@ -46,6 +36,6 @@
   "license": "ISC",
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
-    "react-router-dom": "^5.3.4"
+    "react-router-dom": "^5.3.3"
   }
 }

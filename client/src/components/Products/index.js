@@ -13,10 +13,6 @@ import {
   RedirectButton
 } from './ProductsElements';
 
-const getThree = () => {
-  
-}
-
 const Products = ({ heading, data }) => {
   return (
     <ProductsContainer>
