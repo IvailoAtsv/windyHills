@@ -5,7 +5,8 @@ const ReservationSchema = new mongoose.Schema({
     phone:String,
     email:String,
     details:String,
-    time:String,
+    hours:String,
+    minutes:String,
 })
 
 const Reservation = mongoose.model('Reservation', ReservationSchema)

@@ -2,7 +2,7 @@ import Whills from '../../images/Whills.jpg'
 import styled from 'styled-components';
 
 
-export const BgContainer = styled.div`
+export const BgContainer = styled.form`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url(${Whills});
   background-attachment: fixed;
   background-position: center;
