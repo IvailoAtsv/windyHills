@@ -9,12 +9,28 @@ background-color: black;
 align-items:center;
 justify-content:center;
 `
+export const ReservationDataContainer = styled.div`
+width: 100%;
+align:center;
+display:flex;
+flex-direction:row;
+gap: 2rem;
+flex-flow:flow;
+background-color: black;
+padding:2rem ;
+align-items:center;
+justify-content:center;
+padding-bottom:5rem;
+@media only screen and (max-width: 1024px){
+    flex-direction: column;
+}
+`
 
 export const ReservationContainer = styled.form`
 width: 100%;
 align:center;
 display:flex;
-flex-direction:row;
+flex-direction:column;
 gap: 2rem;
 flex-flow:flow;
 background-color: black;
@@ -92,9 +108,26 @@ width: 12.5rem;
 height: 2.9rem;
 border-radius:5px;
 border:none;
+background-color:white;
+padding:10px;
 font-weight:600;
+font-size:1rem;
 &:hover {
     transition: 0.2s ease-out;
-    scale:1.05;
+    scale:1.02;
   }
+`
+export const ReservationHourPicker = styled.select`
+width:6rem;
+border-radius:5px;
+border:none;
+`
+export const ReservationMinPicker = styled.select`
+width:6rem;
+border-radius:5px;
+border:none;
+`
+export const ReservationOption = styled.option`
+font-family: 'Kanit', sans-serif;
+font-size:2rem;
 `

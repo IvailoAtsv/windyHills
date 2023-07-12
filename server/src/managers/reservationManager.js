@@ -1,6 +1,6 @@
 const Reservation = require('../models/Reservation')
 
-exports.create = (data) => {
+exports.create = async (data) => {
     console.log(data);
     Reservation.create({...data})
 }
