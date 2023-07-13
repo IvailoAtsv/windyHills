@@ -118,14 +118,16 @@ font-size:1rem;
   }
 `
 export const ReservationHourPicker = styled.select`
-width:6rem;
+width:6.3rem;
 border-radius:5px;
 border:none;
+font-size:1rem;
 `
 export const ReservationMinPicker = styled.select`
-width:6rem;
+width:6.3rem;
 border-radius:5px;
 border:none;
+font-size:1rem;
 `
 export const ReservationOption = styled.option`
 font-family: 'Kanit', sans-serif;
