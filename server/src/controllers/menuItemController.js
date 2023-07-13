@@ -4,7 +4,8 @@ const foodManager = require('../managers/foodManager')
 router.get('/', async (req, res) => {
     console.log('it works');
     const menu = await foodManager.getMenu()
-    res.send(menu)
+    res.json(menu)
+    res.end()
 })
 router.post('/create', async (req, res) => {
     console.log(req.body.name);
