@@ -129,5 +129,5 @@ border:none;
 `
 export const ReservationOption = styled.option`
 font-family: 'Kanit', sans-serif;
-font-size:2rem;
+font-size:1rem;
 `
