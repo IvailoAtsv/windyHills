@@ -14,7 +14,7 @@ const Reservation = () => {
     const [nameValid, setNameValid] = useState(true)
     const [phoneValid, setPhoneValid] = useState(true)
     const [emailValid, setEmailValid] = useState(true)
-    const [formValid, setFormValid] = useState()
+    const [formValid, setFormValid] = useState(false)
 
     const [info, setInfo] = useState({
         time: {
@@ -36,7 +36,7 @@ const Reservation = () => {
         const dataArray = [...formData]
         const data = Object.fromEntries(dataArray);
         const fullData = { ...data, value }
-        
+
         validateEmail(fullData.email)
         validateName(fullData.name)
         validatePhone(fullData.phone)
@@ -53,9 +53,9 @@ const Reservation = () => {
             setTimeValid(true)
             setFormValid(true)
         }
-        if(fullData.name =='' || fullData.email =='' || fullData.phone ==''){
+        if (fullData.name == '' || fullData.email == '' || fullData.phone == '') {
             setFormValid(false)
-        }else{
+        } else {
             setFormValid(true)
         }
         if (formValid) {
@@ -79,17 +79,21 @@ const Reservation = () => {
     const validateName = (name) => {
         if (name.length < 3) {
             setNameValid(false)
+            setFormValid(false)
         } else {
             setNameValid(true)
+            setFormValid(true)
         }
     }
 
     const validatePhone = (phone) => {
         if (phone.length < 10) {
             setPhoneValid(false)
+            setFormValid(false)
         } else {
             setPhoneValid(true)
             setInfo({ ...info, phone: phone })
+            setFormValid(true)
 
         }
     }
@@ -97,8 +101,11 @@ const Reservation = () => {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             setEmailValid(true)
             setInfo({ ...info, email: email })
+            setFormValid(true)
+
         } else {
             setEmailValid(false)
+            setFormValid(false)
         }
     }
 
@@ -155,7 +162,7 @@ const Reservation = () => {
                                     setTimeValid(true)
                                     setFormValid(true)
                                 }
-                            }}name="hours" >
+                            }} name="hours" >
                                 {workHours.map((hour) => <ReservationOption>{hour}</ReservationOption>)}
                             </ReservationHourPicker>
                             <ReservationLabel>мин</ReservationLabel>
@@ -165,7 +172,7 @@ const Reservation = () => {
                         </TimeAndSubmitContainer>
                     </DateTimeContainer>
                 </ReservationDataContainer>
-                <ReservationSubmit  disabled = {!formValid}>Изпрати</ReservationSubmit>
+                <ReservationSubmit disabled={!formValid}>Изпрати</ReservationSubmit>
             </ReservationContainer>
         </ReservationShell>
     )
