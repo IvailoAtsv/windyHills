@@ -17,7 +17,8 @@ const Menu = () => {
     }
     fetchMenu()
   }, [])
-
+  console.log(menu);
+  
   const data = [
     {
       img: product1,
@@ -58,7 +59,7 @@ const Menu = () => {
         {menu.map((product, index) => {
           return (
             <Products.ProductCard key={index}>
-              <Products.ProductImg src={product.img} alt={product.name} />
+              <Products.ProductImg src={product.imageUrl} alt={product.name} />
               <Products.ProductInfo>
                 <Products.ProductTitle>{product.name}</Products.ProductTitle>
                 <Products.ProductDesc>{product.description}</Products.ProductDesc>
