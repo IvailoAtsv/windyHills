@@ -10,11 +10,11 @@ exports.register = (adminData) => Admin.create(adminData)
 exports.login = async (admin, password) => {
     const currentAdmin = await Admin.findOne ({ admin })
     if (!currentAdmin) {
-        throw new Error('Cannot find username or password')
+        return new Error('Cannot find username or password')
     }
     const isValid = await bcrypt.compare(password, currentAdmin.password)
     if (!isValid) {
-        throw new Error('Cannot find username or password')
+        return new Error('Cannot find username or password')
     }
 
     const payload = {

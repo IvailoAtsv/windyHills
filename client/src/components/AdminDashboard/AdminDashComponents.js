@@ -12,18 +12,29 @@ export const AdminReservationShell = styled.div`
   }
 `
 export const ReservationCard = styled.div`
+padding:15px;
 width: 300px;
 background-color:white;
 border:none;
 border-radius:5px;
 text-align:center;
-padding:5px;
 display: flex;
 flex-wrap: wrap;
 flex-direction:column;
 justify-content: center;
+align-items:center;
 `
 export const ReservationTitle = styled.label`
 font-size:1rem;
-font-weight:600;
+font-weight:500;
+
+`
+export const ReservationBtn = styled.button`
+margin-top:1rem;
+width:10rem;
+height:2.5rem;
+background-color:#4da4ea;
+outline:none;
+border:none;
+border-radius:6px;
 `
