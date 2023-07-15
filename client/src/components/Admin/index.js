@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
-import { AdminInput, AdminInputContainer, AdminLabel, AdminSubmit, BgContainer } from "./AdminComponents"
+import { AdminForm, AdminInput, AdminInputContainer, AdminLabel, AdminSubmit, BgContainer } from "./AdminComponents"
 import { useHistory } from "react-router-dom"
 import AdminDashboard from "../AdminDashboard"
 import Cookie from 'universal-cookie'
 import { RedirectButton } from "../AdminDashboard/AdminDashComponents"
+import AdminMenuAdd from "../AdminMenuAdd"
+import AdminMenuPreview from "../AdminMenuPreview"
+import { AdminTitle } from "../AdminDashboard/AdminDashComponents"
 
 const Admin = () => {
     const cookies = new Cookie()
@@ -48,23 +51,31 @@ const Admin = () => {
     
 
     return (
-        <BgContainer onSubmit={onSubmitHandler}>
+        <BgContainer >
 
             {!isLoggedIn ?
+            <AdminForm onSubmit={onSubmitHandler}>
+
+            
                 <AdminInputContainer>
-                    <h1>cookie: {cookie}</h1>
                     <AdminLabel>Name</AdminLabel>
                     <AdminInput name="admin" />
                     <AdminLabel>password</AdminLabel>
                     <AdminInput name="password" type="password" />
                     <AdminSubmit> Login </AdminSubmit>
                 </AdminInputContainer>
+                </AdminForm>
                 :
-                <AdminDashboard>
-
-                </AdminDashboard>
+                <>
+            <AdminTitle>Резервации</AdminTitle>
+                <AdminDashboard />
+            <AdminTitle>Създаване на ястие</AdminTitle>
+                <AdminMenuAdd />
+            <AdminTitle>Текущо меню</AdminTitle>
+                <AdminMenuPreview />
+                </>
             }
-            <RedirectButton to="/">Обратно</RedirectButton>
+            <RedirectButton to="/">Начална страница</RedirectButton>
 
         </BgContainer >
     )

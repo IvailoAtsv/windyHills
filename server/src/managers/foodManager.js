@@ -8,3 +8,4 @@ exports.create = async (itemData) => {
     console.log({...itemData});
     FoodItem.create({...itemData})
 }
+exports.del = async(foodId) => FoodItem.findByIdAndDelete(foodId)

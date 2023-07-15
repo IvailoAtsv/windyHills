@@ -2,23 +2,33 @@ import Whills from '../../images/Whills.jpg'
 import styled from 'styled-components';
 
 
-export const BgContainer = styled.form`
+export const BgContainer = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url(${Whills});
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   background-size:cover;
   overflow:auto;
   display:flex;
   flex-direction:column;
   gap:10rem;
+  padding-top:3rem;
   align-items:center;
   justify-content:center;
   :before{
     filter: blur(5px);
 }
+`
+export const AdminForm = styled.form`
+  width:100vw;
+  height:100vh;
+  overflow:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center; 
 `
 export const AdminLabel = styled.label`
 font-size: 1.5rem;

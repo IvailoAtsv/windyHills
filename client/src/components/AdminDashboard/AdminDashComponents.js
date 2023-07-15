@@ -3,15 +3,22 @@ import { Link } from 'react-router-dom';
 
 
 export const AdminReservationShell = styled.div`
-  width:100%;
+position:relative;  
+top:10%;
+width:100%;
   display: flex;
   flex-wrap: wrap;
   gap:2rem;
+  flex-direction:row;
   justify-content: center;
   margin: 0;
   @media only screen and (max-width:720px){
-    flex-direction:column;
   }
+`
+export const AdminTitle = styled.h1`
+font-size: clamp(2rem, 2.5vw, 3rem);
+  text-align: center;
+  color:white;
 `
 export const ReservationCard = styled.div`
 padding:15px;
@@ -51,6 +58,7 @@ font-size: 1rem;
 text-decoration: none;
 width:10rem;
 padding-top:0.5rem;
+margin-bottom:5rem;
 border: none;
 border-radius:6px;
 height:2.5rem;

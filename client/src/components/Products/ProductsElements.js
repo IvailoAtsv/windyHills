@@ -97,3 +97,23 @@ transition: 0.2 ease-out;
   
   `
 
+export const DelBtn = styled.button`
+  font-size: 1.2rem;
+  text-decoration: none'
+  width:30%
+  height:10%;
+  padding:0.6rem;
+  text-align:center;
+  margin-bottom:0.5rem;
+  border: none;
+  border-radius:5px;
+  background:#4da4ea ;
+  color: #000;
+  transition: 0.2 ease-out;
+  &:hover {
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    scale: 1.05;
+
+  }
+`

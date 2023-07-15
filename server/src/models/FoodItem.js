@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
 const FoodItemSchema = new mongoose.Schema({
-    imageUrl:String,
     name: String,
+    imageUrl:String,
     description: String,
     price: String,
 })

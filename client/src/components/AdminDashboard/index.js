@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { AdminReservationShell, RedirectButton, ReservationBtn, ReservationCard, ReservationTitle } from "./AdminDashComponents"
+import { AdminReservationShell, AdminTitle, RedirectButton, ReservationBtn, ReservationCard, ReservationTitle } from "./AdminDashComponents"
 
 const AdminDashboard = () =>{
 
@@ -39,6 +39,7 @@ const AdminDashboard = () =>{
 
 console.log(reservations);
     return(
+        <>
         <AdminReservationShell>
             {reservations?.map((reservation, index)=>
             <ReservationCard key={index}>
@@ -53,6 +54,7 @@ console.log(reservations);
                 <ReservationBtn onClick={()=>handleClick(reservation)}>Готово</ReservationBtn>
             </ReservationCard>)}
         </AdminReservationShell>
+        </>
     )
 }
 
