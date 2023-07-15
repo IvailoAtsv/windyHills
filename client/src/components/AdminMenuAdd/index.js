@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { AdminLabel } from "../Admin/AdminComponents"
 import { AdminMenuContainer, AdminMenuInput, AdminMenuInputContainer, AdminMenuSubmit } from "./AdminMenuComponents"
+import Cookie from 'universal-cookie'
+
 
 const AdminMenu = () => {
 
@@ -10,7 +12,8 @@ const AdminMenu = () => {
     const [priceValid, setPriceValid] = useState(true)
 
     const [formValid, setFormValid] = useState(false)
-
+    
+    const cookies = new Cookie()
     const handleSubmit = async (e) => {
 
         e.stopPropagation();
@@ -19,7 +22,8 @@ const AdminMenu = () => {
 
         const formData = new FormData(e.currentTarget)
         const dataArray = [...formData]
-        const data = Object.fromEntries(dataArray);
+        const dataObj = Object.fromEntries(dataArray);
+        const data = {...dataObj, user:cookies.get('auth')}
 
         if (nameValid && imageValid && descValid && priceValid) {
             try {

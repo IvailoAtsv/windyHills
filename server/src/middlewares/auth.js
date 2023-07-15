@@ -7,7 +7,6 @@ exports.auth = async (req, res, next) => {
 
     if (token) {
         try {
-
             const user = await jwt.verify(token, secret)
 
             req.user = user
@@ -24,9 +23,10 @@ exports.auth = async (req, res, next) => {
     }
 
 }
-exports.isAuth= (req, res, next) => {
-if(!req.user){
-    return res.send('Unauthorized')
-}
-next()
+exports.isAuth = (req, res, next) => {
+    if (!req.body.user) {
+        return res.status(401).send('Unauthorized')
+    }
+    console.log('auth');
+    next()
 }

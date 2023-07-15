@@ -13,8 +13,12 @@ import {
     RedirectButton,
     DelBtn
 } from '../Products/ProductsElements';
+import Cookie from 'universal-cookie'
+
 
 const AdminMenuPreview = () =>{
+
+  const cookies = new Cookie()
 
 const URL = 'http://localhost:4000/menu'
   const [menu,setMenu] = useState([])
@@ -27,6 +31,7 @@ const URL = 'http://localhost:4000/menu'
     fetchMenu()
   }, [])
   const handleClick = async (product) =>{
+    const data = {...product,user:cookies.get('auth')}
     if(window.confirm('Сигурни ли сте че искате да изтриете ястието?')){
         try{
             await fetch('http://localhost:4000/menu/delete',{
@@ -34,7 +39,7 @@ const URL = 'http://localhost:4000/menu'
                 headers:{
                     'Content-Type':'application/json'
                 },
-                body:JSON.stringify(product)
+                body:JSON.stringify(data)
             })
             window.location.reload(false)
         }catch(err){
