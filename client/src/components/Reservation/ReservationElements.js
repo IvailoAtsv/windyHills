@@ -128,7 +128,7 @@ font-size:1rem;
 `
 export const ReservationCalendar = styled.input`
 background-color:white;
-width:100%;
+min-width:100%;
 padding:1rem;
 font-family: 'Kanit', sans-serif;
 border:none;
@@ -136,6 +136,7 @@ text-align:center;
 border-radius:6px;
 outline:none;
 font-size:1.2rem;
+
 ::-webkit-datetime-edit-text { padding: 0 2rem; }
   ::-webkit-datetime-edit-month-field { text-transform: uppercase; }
   ::-webkit-datetime-edit-day-field { text-transform: uppercase; }
@@ -144,5 +145,5 @@ font-size:1.2rem;
   ::-webkit-calendar-picker-indicator { 
     background: transparent;
     padding:0.3rem;
-}
+ }
 `

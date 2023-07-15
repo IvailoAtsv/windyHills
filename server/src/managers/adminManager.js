@@ -4,7 +4,7 @@ const jwt = require('../lib/jwt')
 const Admin = require('../models/Admin')
 const { secret } = require('../config/config')
 
-
+// register one admin then return to comment
 // exports.register = (adminData) => Admin.create(adminData)
 
 exports.login = async (admin, password) => {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ReservationContainer,ReservationAdultsChildren, ReservationHourPicker, ReservationMinPicker, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationShell, ReservationSubmit, ReservationTitle, ReservationOption, ReservationDataContainer, ReservationCalendar, TimeContainer } from "./ReservationElements"
+import { ReservationContainer, ReservationAdultsChildren, ReservationHourPicker, ReservationMinPicker, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationShell, ReservationSubmit, ReservationTitle, ReservationOption, ReservationDataContainer, ReservationCalendar, TimeContainer } from "./ReservationElements"
 import Calendar from "react-calendar"
 import 'react-calendar/dist/Calendar.css';
 import dayjs from 'dayjs';
@@ -12,7 +12,7 @@ const Reservation = () => {
     const [nameValid, setNameValid] = useState(true)
     const [phoneValid, setPhoneValid] = useState(true)
     const [emailValid, setEmailValid] = useState(true)
-    const [dateValid,setDateValid] = useState(true)
+    const [dateValid, setDateValid] = useState(true)
     const [formValid, setFormValid] = useState(false)
 
     const [date, setDate] = useState()
@@ -25,7 +25,7 @@ const Reservation = () => {
         const formData = new FormData(e.currentTarget)
         const dataArray = [...formData]
         const data = Object.fromEntries(dataArray);
-        const fullData = { ...data}
+        const fullData = { ...data }
         console.log(fullData.date);
         validateEmail(fullData.email)
         validateName(fullData.name)
@@ -60,7 +60,7 @@ const Reservation = () => {
             } catch (err) {
                 console.log(err);
             }
-        }else{
+        } else {
             return setFormValid(false)
         }
         document.getElementById('reservation').reset()
@@ -98,14 +98,14 @@ const Reservation = () => {
             setFormValid(false)
         }
     }
-    
-    const validateDate = (date) =>{
+
+    const validateDate = (date) => {
         const day = Number(date.split('-')[2])
         const today = Number(new Date().getDate())
-        if(day<today){
+        if (day < today) {
             setDateValid(false)
             setFormValid(false)
-        }else{
+        } else {
             setDateValid(true)
             setFormValid(true)
         }
@@ -155,16 +155,19 @@ const Reservation = () => {
                         {/* details */}
                         <ReservationLabel> Детайли: </ReservationLabel>
                         <ReservationInput name="details" />
-                            {/* date */}
-                            {!dateValid
-                            ?<ReservationLabel style={{ color: "red" }}>Моля изберете предстояща или текуща дата</ReservationLabel>
-                            :<ReservationLabel>Дата:</ReservationLabel>
+                        {/* date */}
+                        {!dateValid
+                            ? <ReservationLabel style={{ color: "red" }}>Моля изберете предстояща или текуща дата</ReservationLabel>
+                            : <ReservationLabel>Дата:</ReservationLabel>
                         }
-                        <ReservationCalendar onBlur={(e)=>validateDate(e.target.value)} defaultValue ={today.toLocaleDateString('en-CA')} min={today} name="date" type="date"></ReservationCalendar>
+                        <ReservationCalendar onBlur={(e) => validateDate(e.target.value)} defaultValue={today.toLocaleDateString('en-CA')} min={today} name="date" type="date"></ReservationCalendar>
                         {/* hour */}
-                        {!timeValid && <ReservationLabel style={{ color: "red" }}>Моля изберете час</ReservationLabel>}
-                            <ReservationLabel>час</ReservationLabel>
+                        {!timeValid
+                            ? <ReservationLabel style={{ color: "red" }}>Моля изберете час</ReservationLabel>
+                            : <ReservationLabel>час</ReservationLabel>
+                        }
                         <TimeContainer>
+
                             <ReservationHourPicker onChange={(e) => {
                                 if (!e.target.value || e.target.value == 0) {
                                     setTimeValid(false)
@@ -177,10 +180,10 @@ const Reservation = () => {
                                 {workHours.map((hour, index) => <ReservationOption key={index}>{hour}</ReservationOption>)}
                             </ReservationHourPicker>
                             <ReservationMinPicker name="minutes" >
-                                {intervals.map((interval,index) => <ReservationOption key={index}>{interval}</ReservationOption>)}
+                                {intervals.map((interval, index) => <ReservationOption key={index}>{interval}</ReservationOption>)}
                             </ReservationMinPicker>
-                            </TimeContainer>
-                                </ReservationInputContainer>
+                        </TimeContainer>
+                    </ReservationInputContainer>
                 </ReservationDataContainer>
                 <ReservationSubmit disabled={!formValid}>Изпрати</ReservationSubmit>
             </ReservationContainer>

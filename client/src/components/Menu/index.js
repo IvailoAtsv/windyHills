@@ -17,33 +17,7 @@ const Menu = () => {
     }
     fetchMenu()
   }, [])
-  console.log(menu);
-  
-  const data = [
-    {
-      img: product1,
-      alt: 'свински врат',
-      name: 'Бавно печен свински врат',
-      desc:
-        'свински врат, печен на бавен огън с канапе от картофено пюро, поднесен със сотирани картофи',
-      price: '18.89 BGN',
-
-    },
-    {
-      img: product2,
-      alt: 'Smoked salmon salad',
-      name: 'Салата с пушена сьомга',
-      desc:
-        'Салата с пушена сьомга и сирене халуми',
-      price: '15.89 BGN',
-    },
-    {
-      img: product3,
-      alt: '',
-      name: 'Фермерска дъска',
-      desc: 'поднесена с колекция от подбрани регионални сирена и кашкавали',
-      price: '52.99 BGN',
-    },
+ const data =
     {
       img: product3,
       alt: '',
@@ -51,7 +25,7 @@ const Menu = () => {
       desc: 'поднесена с колекция от подбрани регионални сирена и кашкавали',
       price: '52.99 BGN',
     }
-  ];
+  ;
   return (
     <Products.ProductsContainer>
       <Products.ProductsHeading>Меню</Products.ProductsHeading>
