@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { AdminInput, AdminInputContainer, AdminLabel, AdminSubmit, BgContainer } from "./AdminComponents"
 import { useHistory } from "react-router-dom"
+import AdminDashboard from "../AdminDashboard"
 const Admin = () => {
 
     const history = useHistory()
@@ -14,35 +15,39 @@ const Admin = () => {
         const dataArray = [...formData]
         const data = Object.fromEntries(dataArray);
         try {
-            await fetch('http://localhost:4000/admin/login', {
+            const res = await fetch('http://localhost:4000/admin/login', {
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 method: "POST",
                 body: JSON.stringify(data)
             })
-            setIsLoggedIn(true)
+            if (res.ok) {
+                setIsLoggedIn(true)
+            }
         } catch (err) {
             console.log(err);
         }
-        if(isLoggedIn)
-            history.push('/')
-        }
-        
-        
+
+    }
+
         return (
             <BgContainer onSubmit={onSubmitHandler}>
-            <AdminInputContainer>
-                <AdminLabel>Name</AdminLabel>
-                <AdminInput name="admin" />
-                <AdminLabel>password</AdminLabel>
-                <AdminInput name="password" type="password" />
-                <AdminSubmit> Login </AdminSubmit>
-            </AdminInputContainer>
-        </BgContainer >
-    )
+                {!isLoggedIn ?
+                    <AdminInputContainer>
+                        <AdminLabel>Name</AdminLabel>
+                        <AdminInput name="admin" />
+                        <AdminLabel>password</AdminLabel>
+                        <AdminInput name="password" type="password" />
+                        <AdminSubmit> Login </AdminSubmit>
+                    </AdminInputContainer>
+                    : <AdminDashboard>
+                        
+                    </AdminDashboard>
+                }
+
+            </BgContainer >
+        )
+    
 }
-
-
-
 export default Admin

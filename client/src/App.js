@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Reservation from './components/Reservation';
 import Admin from './components/Admin';
 import Menu from './components/Menu'
+import AdminDashboard from './components/AdminDashboard';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       <Route path="/admin">
         <GlobalStyle />
         <Admin />
-      </Route>
+      </Route >
       <Route path="/menu">
       <GlobalStyle />
         <Menu />

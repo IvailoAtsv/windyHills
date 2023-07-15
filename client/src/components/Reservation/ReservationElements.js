@@ -13,7 +13,7 @@ export const ReservationDataContainer = styled.div`
 width: 100%;
 align:center;
 display:flex;
-flex-direction:row;
+flex-direction:column;
 gap: 2rem;
 flex-flow:flow;
 background-color: black;
@@ -44,7 +44,7 @@ padding-bottom:5rem;
 `
 
 export const ReservationTitle = styled.span`
-margin-top:2rem;
+margin-top:4rem;
 font-size: 2.5rem;
 color : white;
 font-weight:550;
@@ -55,7 +55,7 @@ padding-bottom:2rem;
 export const ReservationLabel = styled.label`
 font-size: 1.5rem;
 color: white;
-text-align : left;
+text-align : center;
 font-weight:500;
 margin:.3rem ;
 `
@@ -74,17 +74,7 @@ export const ReservationInput = styled.input`
         
     }
 `
-export const DateTimeContainer = styled.div`
-display: flex;
-gap:1rem;
-flex-direction: column;
-position:relative;
-top:0.9rem;
-@media only screen and (max-width: 720px){
-    display: flex;
-    flex-direction: column;
-}
-`
+
 export const ReservationInputContainer = styled.div`
 width:30%;
 display:flex;
@@ -97,7 +87,8 @@ justify-content:center;
     width: 70%;
 }
 `
-export const TimeAndSubmitContainer = styled.div`
+export const TimeContainer = styled.div`
+width:100%;
 display:flex;
 flex-direction:row;
 gap:1rem;
@@ -108,9 +99,9 @@ width: 12.5rem;
 height: 2.9rem;
 border-radius:5px;
 border:none;
-background-color:white;
+background-color:#4da4ea;
 padding:10px;
-font-weight:600;
+font-weight:500;
 font-size:1rem;
 &:hover {
     transition: 0.2s ease-out;
@@ -118,13 +109,15 @@ font-size:1rem;
   }
 `
 export const ReservationHourPicker = styled.select`
-width:6.3rem;
+width:100%;
+height:3rem;
 border-radius:5px;
 border:none;
 font-size:1rem;
 `
 export const ReservationMinPicker = styled.select`
-width:6.3rem;
+width:100%;
+height:3rem;
 border-radius:5px;
 border:none;
 font-size:1rem;
@@ -132,4 +125,24 @@ font-size:1rem;
 export const ReservationOption = styled.option`
 font-family: 'Kanit', sans-serif;
 font-size:1rem;
+`
+export const ReservationCalendar = styled.input`
+background-color:white;
+width:100%;
+padding:1rem;
+font-family: 'Kanit', sans-serif;
+border:none;
+text-align:center;
+border-radius:6px;
+outline:none;
+font-size:1.2rem;
+::-webkit-datetime-edit-text { padding: 0 2rem; }
+  ::-webkit-datetime-edit-month-field { text-transform: uppercase; }
+  ::-webkit-datetime-edit-day-field { text-transform: uppercase; }
+  ::-webkit-datetime-edit-year-field { text-transform: uppercase; }
+  ::-webkit-inner-spin-button { display: none; }
+  ::-webkit-calendar-picker-indicator { 
+    background: transparent;
+    padding:0.3rem;
+}
 `

@@ -15,12 +15,12 @@ export const FeatureContainer = styled.div`
   background-size: cover;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 4rem;
   justify-content: center;
   align-items: center;
   color: #fff;
   text-align: center;
-  padding: 0 1rem;
+  padding:1rem;
   @media only screen and (max-width:720px){
     max-height:70vh;
   }

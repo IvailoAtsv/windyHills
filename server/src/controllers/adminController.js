@@ -10,11 +10,17 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
+    let token;
     const { admin, password } = req.body
+    try{
+         token = await adminManager.login(admin, password)
+    }catch(err){
+        res.end(err);
+    }
+    if(token){
+        res.cookie('auth', token, { httpOnly: true })
 
-    const token = await adminManager.login(admin, password)
-
-    res.cookie('auth', token, { httpOnly: true })
+    }
     res.end('logged in')
 })
 router.get('/logout', (req, res) => {
