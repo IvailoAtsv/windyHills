@@ -12,6 +12,8 @@ export const BgContainer = styled.form`
   background-size:cover;
   overflow:auto;
   display:flex;
+  flex-direction:column;
+  gap:10rem;
   align-items:center;
   justify-content:center;
   :before{

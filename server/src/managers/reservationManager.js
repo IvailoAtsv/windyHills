@@ -5,6 +5,7 @@ exports.create = async (data) => {
     Reservation.create({ ...data })
 }
 exports.getReservations = () => {
-const reservations = Reservation.find()
-return reservations
+    const reservations = Reservation.find()
+    return reservations
 }
+exports.delReservation = (id) => Reservation.findByIdAndDelete(id)

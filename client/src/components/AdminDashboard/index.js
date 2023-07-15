@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { AdminReservationShell, ReservationBtn, ReservationCard, ReservationTitle } from "./AdminDashComponents"
+import { AdminReservationShell, RedirectButton, ReservationBtn, ReservationCard, ReservationTitle } from "./AdminDashComponents"
 
 const AdminDashboard = () =>{
 
@@ -20,8 +20,21 @@ const AdminDashboard = () =>{
         getReservations()
     },[])
 
-    const handleClick = () =>{
-
+    const handleClick = async (reservation) =>{
+        if(window.confirm('Сигурни ли сте че искате да изтриете резервацията?')){
+            try{
+                await fetch('http://localhost:4000/reservation/delete',{
+                    method:"POST",
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+                    body:JSON.stringify(reservation)
+                })
+                window.location.reload(false)
+            }catch(err){
+                console.log(err);
+            }
+        }
     }
 
 console.log(reservations);
@@ -37,7 +50,7 @@ console.log(reservations);
                 <ReservationTitle>Час: {reservation.hours}: {reservation.minutes}</ReservationTitle>
                 <ReservationTitle>Дата: {reservation.date.split('-').reverse().join('-')}</ReservationTitle>
 
-                <ReservationBtn>Готово</ReservationBtn>
+                <ReservationBtn onClick={()=>handleClick(reservation)}>Готово</ReservationBtn>
             </ReservationCard>)}
         </AdminReservationShell>
     )

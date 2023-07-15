@@ -3,6 +3,7 @@ import { AdminInput, AdminInputContainer, AdminLabel, AdminSubmit, BgContainer }
 import { useHistory } from "react-router-dom"
 import AdminDashboard from "../AdminDashboard"
 import Cookie from 'universal-cookie'
+import { RedirectButton } from "../AdminDashboard/AdminDashComponents"
 
 const Admin = () => {
     const cookies = new Cookie()
@@ -48,6 +49,7 @@ const Admin = () => {
 
     return (
         <BgContainer onSubmit={onSubmitHandler}>
+
             {!isLoggedIn ?
                 <AdminInputContainer>
                     <h1>cookie: {cookie}</h1>
@@ -62,6 +64,7 @@ const Admin = () => {
 
                 </AdminDashboard>
             }
+            <RedirectButton to="/">Обратно</RedirectButton>
 
         </BgContainer >
     )
