@@ -88,9 +88,10 @@ justify-content:center;
 }
 `
 export const TimeContainer = styled.div`
-width:100%;
+min-width:100%;
 display:flex;
 flex-direction:row;
+justify-content:center;
 gap:1rem;
 `
 

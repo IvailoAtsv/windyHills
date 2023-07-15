@@ -35,9 +35,11 @@ export const FeatureContainer = styled.div`
   }
 `;
 export const FeatureButton = styled(Link)`
+width:15rem;
   font-size: 1.3rem;
   text-decoration:none;
-  padding: 0.6rem 3rem;
+  padding: 0.8rem 0.5rem;
+  border-radius:6px;
   border: none;
   background: white;
   color: #000;
