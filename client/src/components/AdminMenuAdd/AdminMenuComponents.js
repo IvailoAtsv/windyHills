@@ -1,5 +1,18 @@
 import styled from "styled-components"
 
+export const AdminMenuCreationDiv = styled.div`
+width: 100%;
+align:center;
+display:flex;
+flex-direction:row;
+gap: 2rem;
+flex-flow:flow;
+background-color: transparent;
+padding:2rem ;
+align-items:center;
+justify-content:center;
+`
+
 export const AdminMenuContainer = styled.form`
 width: 100%;
 align:center;

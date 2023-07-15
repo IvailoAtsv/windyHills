@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { AdminLabel } from "../Admin/AdminComponents"
-import { AdminMenuContainer, AdminMenuInput, AdminMenuInputContainer, AdminMenuSubmit } from "./AdminMenuComponents"
+import { AdminMenuContainer, AdminMenuCreationDiv, AdminMenuInput, AdminMenuInputContainer, AdminMenuSubmit } from "./AdminMenuComponents"
 import Cookie from 'universal-cookie'
 
 
@@ -12,9 +12,9 @@ const AdminMenu = () => {
     const [priceValid, setPriceValid] = useState(true)
 
     const [formValid, setFormValid] = useState(false)
-    
+
     const cookies = new Cookie()
-    const handleSubmit = async (e) => {
+    const handleFoodSubmit = async (e) => {
 
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
@@ -23,7 +23,7 @@ const AdminMenu = () => {
         const formData = new FormData(e.currentTarget)
         const dataArray = [...formData]
         const dataObj = Object.fromEntries(dataArray);
-        const data = {...dataObj, user:cookies.get('auth')}
+        const data = { ...dataObj, user: cookies.get('auth') }
 
         if (nameValid && imageValid && descValid && priceValid) {
             try {
@@ -38,7 +38,33 @@ const AdminMenu = () => {
                 console.log(err);
             }
         }
+        document.getElementById('food').reset()
+    }
+    const handleWineSubmit = async (e) => {
 
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
+        e.preventDefault()
+
+        const formData = new FormData(e.currentTarget)
+        const dataArray = [...formData]
+        const dataObj = Object.fromEntries(dataArray);
+        const data = { ...dataObj, user: cookies.get('auth') }
+
+        if (nameValid && imageValid && descValid && priceValid) {
+            try {
+                await fetch('http://localhost:4000/drinks/create', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        document.getElementById('drinks').reset()
     }
 
     const validateName = (name) => {
@@ -81,32 +107,63 @@ const AdminMenu = () => {
     }
 
     return (
-        <AdminMenuContainer javascript="false" onSubmit={handleSubmit}>
-            <AdminMenuInputContainer>
-                {nameValid
-                    ? <AdminLabel>Име на ястието</AdminLabel>
-                    : <AdminLabel style={{ color: 'red' }}>Въведете валидно име!</AdminLabel>
-                }
-                <AdminMenuInput name="name" onBlur={(e) => validateName(e.target.value)} />
-                {imageValid
-                    ? <AdminLabel>Път към снимка</AdminLabel>
-                    : <AdminLabel style={{ color: 'red' }}>Въведете правилн линк към снимка!</AdminLabel>
-                }
-                <AdminMenuInput name="imageUrl" onBlur={(e) => validateImageUrl(e.target.value)} />
-                {descValid
-                    ? <AdminLabel>Описание</AdminLabel>
-                    : <AdminLabel style={{ color: 'red' }}>Въведете описание!</AdminLabel>
-                }
-                <AdminMenuInput name="description" onBlur={(e) => validateDesc(e.target.value)} />
-                {priceValid
-                    ? <AdminLabel>Цена</AdminLabel>
-                    : <AdminLabel style={{ color: 'red' }}>Въведете валидна Цена</AdminLabel>
-                }
-                <AdminMenuInput name="price" onBlur={(e) => validatePrice(e.target.value)} />
+        <AdminMenuCreationDiv>
 
-            </AdminMenuInputContainer>
-            <AdminMenuSubmit disabled={!formValid}>Създай</AdminMenuSubmit>
-        </AdminMenuContainer>
+            <AdminMenuContainer id="food" javascript="false" onSubmit={handleFoodSubmit}>
+                <AdminMenuInputContainer>
+                    {nameValid
+                        ? <AdminLabel>Име на ястието</AdminLabel>
+                        : <AdminLabel style={{ color: 'red' }}>Въведете валидно име!</AdminLabel>
+                    }
+                    <AdminMenuInput name="name" onBlur={(e) => validateName(e.target.value)} />
+                    {imageValid
+                        ? <AdminLabel>Път към снимка</AdminLabel>
+                        : <AdminLabel style={{ color: 'red' }}>Въведете правилн линк към снимка!</AdminLabel>
+                    }
+                    <AdminMenuInput name="imageUrl" onBlur={(e) => validateImageUrl(e.target.value)} />
+                    {descValid
+                        ? <AdminLabel>Описание</AdminLabel>
+                        : <AdminLabel style={{ color: 'red' }}>Въведете описание!</AdminLabel>
+                    }
+                    <AdminMenuInput name="description" onBlur={(e) => validateDesc(e.target.value)} />
+                    {priceValid
+                        ? <AdminLabel>Цена</AdminLabel>
+                        : <AdminLabel style={{ color: 'red' }}>Въведете валидна Цена</AdminLabel>
+                    }
+                    <AdminMenuInput name="price" onBlur={(e) => validatePrice(e.target.value)} />
+
+                </AdminMenuInputContainer>
+                <AdminMenuSubmit disabled={!formValid}>Създай</AdminMenuSubmit>
+            </AdminMenuContainer>
+
+            <AdminMenuContainer id="drinks" javascript="false" onSubmit={handleWineSubmit}>
+                <AdminMenuInputContainer>
+                    {nameValid
+                        ? <AdminLabel>Име на вино</AdminLabel>
+                        : <AdminLabel style={{ color: 'red' }}>Въведете валидно име!</AdminLabel>
+                    }
+                    <AdminMenuInput name="name" onBlur={(e) => validateName(e.target.value)} />
+                    {imageValid
+                        ? <AdminLabel>Път към снимка</AdminLabel>
+                        : <AdminLabel style={{ color: 'red' }}>Въведете правилн линк към снимка!</AdminLabel>
+                    }
+                    <AdminMenuInput name="imageUrl" onBlur={(e) => validateImageUrl(e.target.value)} />
+                    {descValid
+                        ? <AdminLabel>Описание</AdminLabel>
+                        : <AdminLabel style={{ color: 'red' }}>Въведете описание!</AdminLabel>
+                    }
+                    <AdminMenuInput name="description" onBlur={(e) => validateDesc(e.target.value)} />
+                    {priceValid
+                        ? <AdminLabel>Цена</AdminLabel>
+                        : <AdminLabel style={{ color: 'red' }}>Въведете валидна Цена</AdminLabel>
+                    }
+                    <AdminMenuInput name="price" onBlur={(e) => validatePrice(e.target.value)} />
+
+                </AdminMenuInputContainer>
+                <AdminMenuSubmit disabled={!formValid}>Създай</AdminMenuSubmit>
+            </AdminMenuContainer>
+        </AdminMenuCreationDiv>
+
     )
 }
 

@@ -5,7 +5,7 @@ const Feature = () => {
   return (
     <FeatureContainer>
       <h1>Опитайте вината на Windy Hills!</h1>
-      <FeatureButton>Разгледайте Меню</FeatureButton>
+      <FeatureButton to="/drinks">Разгледайте Меню</FeatureButton>
     </FeatureContainer>
   );
 };

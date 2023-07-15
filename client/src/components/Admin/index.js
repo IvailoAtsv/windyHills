@@ -71,7 +71,6 @@ const Admin = () => {
                 <AdminDashboard />
             <AdminTitle>Създаване на ястие</AdminTitle>
                 <AdminMenuAdd />
-            <AdminTitle>Текущо меню</AdminTitle>
                 <AdminMenuPreview />
                 </>
             }

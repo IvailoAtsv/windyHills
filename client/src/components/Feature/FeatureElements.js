@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import FeaturePic from '../../images/wine.jpg';
+import { Link } from 'react-router-dom';
 
 export const FeatureContainer = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)),
@@ -33,8 +34,9 @@ export const FeatureContainer = styled.div`
     font-size: clamp(1rem, 3vw, 2rem);
   }
 `;
-export const FeatureButton = styled.button`
+export const FeatureButton = styled(Link)`
   font-size: 1.3rem;
+  text-decoration:none;
   padding: 0.6rem 3rem;
   border: none;
   background: white;

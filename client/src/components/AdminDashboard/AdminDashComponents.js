@@ -16,7 +16,7 @@ width:100%;
   }
 `
 export const AdminTitle = styled.h1`
-font-size: clamp(2rem, 2.5vw, 3rem);
+font-size: clamp(3rem, 2.5vw, 3rem);
   text-align: center;
   color:white;
 `
