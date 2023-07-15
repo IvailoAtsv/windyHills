@@ -39,6 +39,8 @@ const AdminMenu = () => {
             }
         }
         document.getElementById('food').reset()
+        window.location.reload(false)
+
     }
     const handleWineSubmit = async (e) => {
 
@@ -65,6 +67,8 @@ const AdminMenu = () => {
             }
         }
         document.getElementById('drinks').reset()
+        window.location.reload(false)
+
     }
 
     const validateName = (name) => {

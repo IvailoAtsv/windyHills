@@ -4,7 +4,7 @@ const { isAuth } = require('../middlewares/auth')
 
 
 
-router.post('/create', async (req, res) => {
+router.post('/create',isAuth, async (req, res) => {
     const { imageUrl, name, description, price } = req.body
     
     const wine = await wineManager.create({ name, description, price, imageUrl })
