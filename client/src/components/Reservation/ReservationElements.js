@@ -60,7 +60,7 @@ font-weight:500;
 margin:.3rem ;
 `
 export const ReservationInput = styled.input`
-    min-width: 100%;
+    min-width: 30%;
     height:3.7rem;
     outline: none;
     border: 1px solid black;
@@ -76,19 +76,15 @@ export const ReservationInput = styled.input`
 `
 
 export const ReservationInputContainer = styled.div`
-width:30%;
+width:100%;
 display:flex;
 flex-direction:column;
-padding-bottom:1rem;
 align-items:center;
 justify-content:center;
-
-@media only screen and (max-width: 720px){
-    width: 70%;
-}
+flex-flow:flow;
 `
 export const TimeContainer = styled.div`
-min-width:100%;
+width:30%;
 display:flex;
 flex-direction:row;
 justify-content:center;
@@ -129,7 +125,7 @@ font-size:1rem;
 `
 export const ReservationCalendar = styled.input`
 background-color:white;
-min-width:100%;
+min-width:30%;
 padding:1rem;
 font-family: 'Kanit', sans-serif;
 border:none;

@@ -13,9 +13,7 @@ const Reservation = () => {
     const [phoneValid, setPhoneValid] = useState(true)
     const [emailValid, setEmailValid] = useState(true)
     const [dateValid, setDateValid] = useState(true)
-    const [formValid, setFormValid] = useState(false)
-
-    const [date, setDate] = useState()
+    const [formValid,setFormValid] = useState(true)
 
     //post req
     const onSubmitHandler = async (e) => {
@@ -27,23 +25,12 @@ const Reservation = () => {
         const data = Object.fromEntries(dataArray);
         const fullData = { ...data }
         console.log(fullData.date);
+        
         validateEmail(fullData.email)
         validateName(fullData.name)
         validatePhone(fullData.phone)
 
         if (!nameValid || !phoneValid || !emailValid) {
-            setFormValid(false)
-        } else {
-            setFormValid(true)
-        }
-        if ((!fullData.hours || fullData.hours == 0) || !fullData.minutes) {
-            setTimeValid(false)
-            setFormValid(false)
-        } else {
-            setTimeValid(true)
-            setFormValid(true)
-        }
-        if (fullData.name == '' || fullData.email == '' || fullData.phone == '') {
             setFormValid(false)
         } else {
             setFormValid(true)
@@ -57,45 +44,37 @@ const Reservation = () => {
                     method: "POST",
                     body: JSON.stringify(fullData)
                 })
+                document.getElementById('reservation').reset()
             } catch (err) {
                 console.log(err);
             }
         } else {
             return setFormValid(false)
         }
-        document.getElementById('reservation').reset()
-        setFormValid(false)
     }
 
 
     const validateName = (name) => {
         if (name.length < 3) {
             setNameValid(false)
-            setFormValid(false)
         } else {
             setNameValid(true)
-            setFormValid(true)
         }
     }
 
     const validatePhone = (phone) => {
         if (phone.length < 10) {
             setPhoneValid(false)
-            setFormValid(false)
         } else {
             setPhoneValid(true)
-            setFormValid(true)
-
         }
     }
     const validateEmail = (email) => {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             setEmailValid(true)
-            setFormValid(true)
 
         } else {
             setEmailValid(false)
-            setFormValid(false)
         }
     }
 
@@ -104,15 +83,13 @@ const Reservation = () => {
         const today = Number(new Date().getDate())
         if (day < today) {
             setDateValid(false)
-            setFormValid(false)
         } else {
             setDateValid(true)
-            setFormValid(true)
         }
     }
 
     const getWorkingHours = (opening, closing) => {
-        const hours = [0]
+        const hours = ['']
         for (let i = opening; i < closing; i++) {
             hours.push(i)
         }
@@ -136,22 +113,22 @@ const Reservation = () => {
                     <ReservationInputContainer>
                         {/* name input */}
                         {!nameValid
-                            ? <ReservationLabel style={{ color: "red" }}>Името трябва да съдържа поне 3 символа</ReservationLabel>
+                            ? <ReservationLabel style={{ color: "red" }} >Името трябва да съдържа поне 3 символа</ReservationLabel>
                             : <ReservationLabel>Име и Фамилия:</ReservationLabel>}
-                        <ReservationInput name="name" onBlur={(e) => validateName(e.target.value)} />
+                        <ReservationInput required="true" name="name" onBlur={(e)=>validateName(e.target.value)} />
                         {/* guests input */}
                         <ReservationLabel>Брой гости:</ReservationLabel>
-                        <ReservationInput name="guests" type="number"></ReservationInput>
+                        <ReservationInput required="true" name="guests" type="number"></ReservationInput>
                         {/* phone input */}
                         {!phoneValid
                             ? <ReservationLabel style={{ color: "red" }}>Моля въведете валиден телефонен номер</ReservationLabel>
                             : <ReservationLabel> Телефон: </ReservationLabel>}
-                        <ReservationInput name="phone" onBlur={(e) => validatePhone(e.target.value)} />
+                        <ReservationInput required="true" name="phone" onBlur={(e) => validatePhone(e.target.value)} />
                         {/* email input */}
-                        {!emailValid
+                        {/* {!emailValid
                             ? <ReservationLabel style={{ color: "red" }}>Моля въведете валиден e-mail</ReservationLabel>
                             : <ReservationLabel> Имейл: </ReservationLabel>}
-                        <ReservationInput name="email" onBlur={(e) => validateEmail(e.target.value)} />
+                        <ReservationInput type="email" onBlur={(e)=>validateEmail(e.target.value)} name="email"  /> */}
                         {/* details */}
                         <ReservationLabel> Детайли: </ReservationLabel>
                         <ReservationInput name="details" />
@@ -160,7 +137,7 @@ const Reservation = () => {
                             ? <ReservationLabel style={{ color: "red" }}>Моля изберете предстояща или текуща дата</ReservationLabel>
                             : <ReservationLabel>Дата:</ReservationLabel>
                         }
-                        <ReservationCalendar onBlur={(e) => validateDate(e.target.value)} defaultValue={today.toLocaleDateString('en-CA')} min={today} name="date" type="date"></ReservationCalendar>
+                        <ReservationCalendar required="true" onBlur={(e) => validateDate(e.target.value)} defaultValue={today.toLocaleDateString('en-CA')} min={today} name="date" type="date"></ReservationCalendar>
                         {/* hour */}
                         {!timeValid
                             ? <ReservationLabel style={{ color: "red" }}>Моля изберете час</ReservationLabel>
@@ -168,7 +145,7 @@ const Reservation = () => {
                         }
                         <TimeContainer>
 
-                            <ReservationHourPicker onChange={(e) => {
+                            <ReservationHourPicker placeholder="" required="true" onChange={(e) => {
                                 if (!e.target.value || e.target.value == 0) {
                                     setTimeValid(false)
                                     setFormValid(false)
@@ -183,7 +160,7 @@ const Reservation = () => {
                                 {intervals.map((interval, index) => <ReservationOption key={index}>{interval}</ReservationOption>)}
                             </ReservationMinPicker>
                         </TimeContainer>
-                    </ReservationInputContainer>
+                                </ReservationInputContainer>
                 </ReservationDataContainer>
                 <ReservationSubmit disabled={!formValid}>Изпрати</ReservationSubmit>
             </ReservationContainer>
