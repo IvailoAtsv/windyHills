@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ProductsContainer,
   ProductWrapper,
@@ -13,15 +13,24 @@ import {
   RedirectButton
 } from './ProductsElements';
 
-const Products = ({ heading, data }) => {
+const Products = ({ data }) => {
+  const URL = 'http://localhost:4000/menu'
+  const [menu,setMenu] = useState([])
+  useEffect(() => {
+    const fetchMenu = async () => {
+      const result = await fetch(URL)
+      return result.json().then(json => setMenu(json))
+    }
+    fetchMenu()
+  }, [])
   return (
     <ProductsContainer>
       <ProductsHeading>Предложения от нашата кухня</ProductsHeading>
       <ProductWrapper>
-        {data.map((product, index) => {
+        {menu.map((product, index) => {
           return (
             <ProductCard key={index}>
-              <ProductImg src={product.img} alt={product.alt} />
+              <ProductImg src={product.imageUrl} alt={product.alt} />
               <ProductInfo>
                 <ProductTitle>{product.name}</ProductTitle>
                 <ProductDesc>{product.desc}</ProductDesc>

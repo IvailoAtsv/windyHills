@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ReservationContainer, ReservationAdultsChildren, ReservationHourPicker, ReservationMinPicker, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationShell, ReservationSubmit, ReservationTitle, ReservationOption, ReservationDataContainer, ReservationCalendar, TimeContainer } from "./ReservationElements"
+import { ReservationContainer, ReservationAdultsChildren, ReservationHourPicker, ReservationMinPicker, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationShell, ReservationSubmit, ReservationTitle, ReservationOption, ReservationDataContainer, ReservationCalendar, TimeContainer, ResSent } from "./ReservationElements"
 import Calendar from "react-calendar"
 import 'react-calendar/dist/Calendar.css';
 import dayjs from 'dayjs';
@@ -13,8 +13,9 @@ const Reservation = () => {
     const [phoneValid, setPhoneValid] = useState(true)
     const [emailValid, setEmailValid] = useState(true)
     const [dateValid, setDateValid] = useState(true)
-    const [formValid,setFormValid] = useState(true)
+    const [formValid, setFormValid] = useState(false)
 
+    const [resSent, setResSent] = useState(false)
     //post req
     const onSubmitHandler = async (e) => {
 
@@ -25,7 +26,7 @@ const Reservation = () => {
         const data = Object.fromEntries(dataArray);
         const fullData = { ...data }
         console.log(fullData.date);
-        
+
         validateEmail(fullData.email)
         validateName(fullData.name)
         validatePhone(fullData.phone)
@@ -45,6 +46,10 @@ const Reservation = () => {
                     body: JSON.stringify(fullData)
                 })
                 document.getElementById('reservation').reset()
+                setResSent(true)
+                setTimeout(() => {
+                    setResSent(false)
+                }, 2000);
             } catch (err) {
                 console.log(err);
             }
@@ -107,63 +112,68 @@ const Reservation = () => {
     const intervals = getMinuteIntervals(15)
     return (
         <ReservationShell>
-            <ReservationTitle>Направете Резервация</ReservationTitle>
-            <ReservationContainer id="reservation" onSubmit={onSubmitHandler}>
-                <ReservationDataContainer>
-                    <ReservationInputContainer>
-                        {/* name input */}
-                        {!nameValid
-                            ? <ReservationLabel style={{ color: "red" }} >Името трябва да съдържа поне 3 символа</ReservationLabel>
-                            : <ReservationLabel>Име и Фамилия:</ReservationLabel>}
-                        <ReservationInput required="true" name="name" onBlur={(e)=>validateName(e.target.value)} />
-                        {/* guests input */}
-                        <ReservationLabel>Брой гости:</ReservationLabel>
-                        <ReservationInput required="true" name="guests" type="number"></ReservationInput>
-                        {/* phone input */}
-                        {!phoneValid
-                            ? <ReservationLabel style={{ color: "red" }}>Моля въведете валиден телефонен номер</ReservationLabel>
-                            : <ReservationLabel> Телефон: </ReservationLabel>}
-                        <ReservationInput required="true" name="phone" onBlur={(e) => validatePhone(e.target.value)} />
-                        {/* email input */}
-                        {/* {!emailValid
+            {!resSent
+                ? <>
+                    <ReservationTitle>Направете Резервация</ReservationTitle>
+                    <ReservationContainer id="reservation" onSubmit={onSubmitHandler}>
+                        <ReservationDataContainer>
+                            <ReservationInputContainer>
+                                {/* name input */}
+                                {!nameValid
+                                    ? <ReservationLabel style={{ color: "red" }} >Името трябва да съдържа поне 3 символа</ReservationLabel>
+                                    : <ReservationLabel>Име и Фамилия:</ReservationLabel>}
+                                <ReservationInput required="true" name="name" onBlur={(e) => validateName(e.target.value)} />
+                                {/* guests input */}
+                                <ReservationLabel>Брой гости:</ReservationLabel>
+                                <ReservationInput required="true" name="guests" type="number"></ReservationInput>
+                                {/* phone input */}
+                                {!phoneValid
+                                    ? <ReservationLabel style={{ color: "red" }}>Моля въведете валиден телефонен номер</ReservationLabel>
+                                    : <ReservationLabel> Телефон: </ReservationLabel>}
+                                <ReservationInput required="true" name="phone" onBlur={(e) => validatePhone(e.target.value)} />
+                                {/* email input */}
+                                {/* {!emailValid
                             ? <ReservationLabel style={{ color: "red" }}>Моля въведете валиден e-mail</ReservationLabel>
                             : <ReservationLabel> Имейл: </ReservationLabel>}
                         <ReservationInput type="email" onBlur={(e)=>validateEmail(e.target.value)} name="email"  /> */}
-                        {/* details */}
-                        <ReservationLabel> Детайли: </ReservationLabel>
-                        <ReservationInput name="details" />
-                        {/* date */}
-                        {!dateValid
-                            ? <ReservationLabel style={{ color: "red" }}>Моля изберете предстояща или текуща дата</ReservationLabel>
-                            : <ReservationLabel>Дата:</ReservationLabel>
-                        }
-                        <ReservationCalendar required="true" onBlur={(e) => validateDate(e.target.value)} defaultValue={today.toLocaleDateString('en-CA')} min={today} name="date" type="date"></ReservationCalendar>
-                        {/* hour */}
-                        {!timeValid
-                            ? <ReservationLabel style={{ color: "red" }}>Моля изберете час</ReservationLabel>
-                            : <ReservationLabel>час</ReservationLabel>
-                        }
-                        <TimeContainer>
-
-                            <ReservationHourPicker placeholder="" required="true" onChange={(e) => {
-                                if (!e.target.value || e.target.value == 0) {
-                                    setTimeValid(false)
-                                    setFormValid(false)
-                                } else {
-                                    setTimeValid(true)
-                                    setFormValid(true)
+                                {/* details */}
+                                <ReservationLabel> Детайли: </ReservationLabel>
+                                <ReservationInput name="details" />
+                                {/* date */}
+                                {!dateValid
+                                    ? <ReservationLabel style={{ color: "red" }}>Моля изберете предстояща или текуща дата</ReservationLabel>
+                                    : <ReservationLabel>Дата:</ReservationLabel>
                                 }
-                            }} name="hours" >
-                                {workHours.map((hour, index) => <ReservationOption key={index}>{hour}</ReservationOption>)}
-                            </ReservationHourPicker>
-                            <ReservationMinPicker name="minutes" >
-                                {intervals.map((interval, index) => <ReservationOption key={index}>{interval}</ReservationOption>)}
-                            </ReservationMinPicker>
-                        </TimeContainer>
-                                </ReservationInputContainer>
-                </ReservationDataContainer>
-                <ReservationSubmit disabled={!formValid}>Изпрати</ReservationSubmit>
-            </ReservationContainer>
+                                <ReservationCalendar required="true" onBlur={(e) => validateDate(e.target.value)} defaultValue={today.toLocaleDateString('en-CA')} min={today} name="date" type="date"></ReservationCalendar>
+                                {/* hour */}
+                                {!timeValid
+                                    ? <ReservationLabel style={{ color: "red" }}>Моля изберете час</ReservationLabel>
+                                    : <ReservationLabel>час</ReservationLabel>
+                                }
+                                <TimeContainer>
+
+                                    <ReservationHourPicker placeholder="" required="true" onChange={(e) => {
+                                        if (!e.target.value || e.target.value == 0) {
+                                            setTimeValid(false)
+                                            setFormValid(false)
+                                        } else {
+                                            setTimeValid(true)
+                                            setFormValid(true)
+                                        }
+                                    }} name="hours" >
+                                        {workHours.map((hour, index) => <ReservationOption key={index}>{hour}</ReservationOption>)}
+                                    </ReservationHourPicker>
+                                    <ReservationMinPicker name="minutes" >
+                                        {intervals.map((interval, index) => <ReservationOption key={index}>{interval}</ReservationOption>)}
+                                    </ReservationMinPicker>
+                                </TimeContainer>
+                            </ReservationInputContainer>
+                        </ReservationDataContainer>
+                        <ReservationSubmit disabled={!formValid}>Изпрати</ReservationSubmit>
+                    </ReservationContainer>
+                </>
+                : <ResSent>Успешно изпратена резервация</ResSent>
+            }
         </ReservationShell>
     )
 }
