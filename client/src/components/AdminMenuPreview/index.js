@@ -23,7 +23,7 @@ const AdminMenuPreview = () => {
   const cookies = new Cookie()
 
   const URL = 'http://localhost:4000/menu'
-  const wineURL = 'http://localhost:4000/drinks'
+  const wineURL = `${URL}/drinks`
   const [menu, setMenu] = useState([])
   const [drinks,setDrinks] = useState([])
 
@@ -43,7 +43,7 @@ const AdminMenuPreview = () => {
     const data = { ...product, user: cookies.get('auth') }
     if (window.confirm('Сигурни ли сте че искате да изтриете ястието?')) {
       try {
-        await fetch('http://localhost:4000/menu/delete', {
+        await fetch(`${URL}/menu/delete`, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ const AdminMenuPreview = () => {
     const data = { ...product, user: cookies.get('auth') }
     if (window.confirm('Сигурни ли сте че искате да изтриете ястието?')) {
       try {
-        await fetch('http://localhost:4000/drinks/delete', {
+        await fetch(`${URL}/drinks/delete`, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
@@ -76,7 +76,7 @@ const AdminMenuPreview = () => {
   console.log(menu);
   return (
     <AdminMenuPreviewDiv>
-            <AdminTitle>Mеню</AdminTitle>
+            <AdminTitle>Храни</AdminTitle>
       <ProductsContainer style={{ background: 'transparent' }}>
         <ProductWrapper>
           {menu.map((product, index) => {

@@ -2,12 +2,12 @@ const router = require('express').Router()
 const adminManager = require('../managers/adminManager')
 
 
-// router.post('/register', async (req, res) => {
-//     const { admin, password, repeatPassword } = req.body
+router.post('/register', async (req, res) => {
+    const { admin, password, repeatPassword } = req.body
 
-//     await adminManager.register({ admin, password, repeatPassword })
-//     res.end()
-// })
+    await adminManager.register({ admin, password, repeatPassword })
+    res.end()
+})
 
 router.post('/login', async (req, res) => {
     const { admin, password } = req.body

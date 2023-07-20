@@ -25,6 +25,7 @@ const slideInFromLeft = keyframes`
 
 export const HeroContainer = styled.div`
   height: 100vh;
+  width:100vw;
   background-position: center;
   background-size: cover;
 `;
@@ -72,20 +73,22 @@ export const HeroP = styled.p`
 
 export const HeroBtn = styled.button`
   border-radius:8px;
-  font-size: 1.4rem;
-  padding: 0.5rem 0.7rem;
+  font-size: 1.2rem;
+  padding: 0.5rem;
   border: none;
   background:white ;
   color: #000;
   transition: 0.5s ease-out;
   display:flex;
-  align-items:center;
   gap:2rem;
   &:hover {
     transition: 0.2s ease-out;
     cursor: pointer;
     color: #000;
     scale: 1.05;
+  }
+  @media screen and (max-width: 650px) {
+    font-size:1rem;
   }
   `
  

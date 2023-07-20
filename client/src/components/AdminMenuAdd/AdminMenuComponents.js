@@ -11,6 +11,9 @@ background-color: transparent;
 padding:2rem ;
 align-items:center;
 justify-content:center;
+@media only screen and (max-width: 1024px){
+    flex-direction: column;
+}
 `
 
 export const AdminMenuContainer = styled.form`

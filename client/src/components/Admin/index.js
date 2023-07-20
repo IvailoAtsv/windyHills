@@ -31,7 +31,7 @@ const Admin = () => {
         const data = Object.fromEntries(dataArray);
         try {
 
-            const res = await fetch('http://localhost:4000/admin/login', {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND}/admin/login`, {
                 credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
@@ -69,8 +69,10 @@ const Admin = () => {
                 <>
             <AdminTitle>Резервации</AdminTitle>
                 <AdminDashboard />
-            <AdminTitle>Създаване на ястие</AdminTitle>
+            <AdminTitle>Създаване на предмет за меню</AdminTitle>
                 <AdminMenuAdd />
+            <AdminTitle>Текущо меню</AdminTitle>
+
                 <AdminMenuPreview />
                 </>
             }

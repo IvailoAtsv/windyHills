@@ -5,7 +5,7 @@ const Admin = require('../models/Admin')
 const { secret } = require('../config/config')
 
 // register one admin then return to comment
-// exports.register = (adminData) => Admin.create(adminData)
+exports.register = (adminData) => Admin.create(adminData)
 
 exports.login = async (admin, password) => {
     const currentAdmin = await Admin.findOne ({ admin })

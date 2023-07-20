@@ -17,7 +17,7 @@ import {
 
 const DrinksMenu = () => {
 
-    const URL = 'http://localhost:4000/drinks'
+    const URL = process.env.REACT_APP_BACKEND
     const [menu,setMenu] = useState([])
   
     useEffect(() => {

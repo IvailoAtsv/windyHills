@@ -2,8 +2,9 @@ import { useEffect, useState } from "react"
 import { AdminReservationShell, AdminTitle, RedirectButton, ReservationBtn, ReservationCard, ReservationTitle } from "./AdminDashComponents"
 import Cookie from 'universal-cookie'
 
-const AdminDashboard = () =>{
 
+const AdminDashboard = () =>{
+    const URL = process.env.REACT_APP_BACKEND
     const cookies = new Cookie()
 
     const [reservations,setReservations] = useState()
@@ -12,7 +13,7 @@ const AdminDashboard = () =>{
         async function getReservations(){
 
             try{   
-                const result = await fetch('http://localhost:4000/reservation')
+                const result = await fetch(`${URL}/reservation`)
                 const reservationsArr = await result.json()
                 
                 setReservations(reservationsArr)
@@ -27,7 +28,7 @@ const AdminDashboard = () =>{
         const data ={...reservation, user:cookies.get('auth')}
         if(window.confirm('Сигурни ли сте че искате да изтриете резервацията?')){
             try{
-                await fetch('http://localhost:4000/reservation/delete',{
+                await fetch(`${URL}/reservation/delete`,{
                     method:"POST",
                     headers:{
                         'Content-Type':'application/json'

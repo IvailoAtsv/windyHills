@@ -89,6 +89,11 @@ display:flex;
 flex-direction:row;
 justify-content:center;
 gap:1rem;
+@media only screen and (max-width: 720px){
+
+    width:100%;
+    
+}
 `
 
 export const ReservationSubmit = styled.button`
@@ -118,6 +123,7 @@ height:3rem;
 border-radius:5px;
 border:none;
 font-size:1rem;
+
 `
 export const ReservationOption = styled.option`
 font-family: 'Kanit', sans-serif;
@@ -133,7 +139,16 @@ text-align:center;
 border-radius:6px;
 outline:none;
 font-size:1.2rem;
+@media only screen and (max-width: 800px){
 
+    width:45%;
+    
+}
+@media only screen and (max-width: 720px){
+
+    width:100%;
+    
+}
 ::-webkit-datetime-edit-text { padding: 0 2rem; }
   ::-webkit-datetime-edit-month-field { text-transform: uppercase; }
   ::-webkit-datetime-edit-day-field { text-transform: uppercase; }

@@ -1,13 +1,8 @@
 import { useState } from "react";
 import { ReservationContainer, ReservationAdultsChildren, ReservationHourPicker, ReservationMinPicker, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationShell, ReservationSubmit, ReservationTitle, ReservationOption, ReservationDataContainer, ReservationCalendar, TimeContainer } from "./ReservationElements"
-import Calendar from "react-calendar"
-import 'react-calendar/dist/Calendar.css';
-import dayjs from 'dayjs';
-import customParseFormat from 'dayjs/plugin/customParseFormat';
-dayjs.extend(customParseFormat);
+
 
 const Reservation = () => {
-
     const [timeValid, setTimeValid] = useState(true)
     const [nameValid, setNameValid] = useState(true)
     const [phoneValid, setPhoneValid] = useState(true)
@@ -37,7 +32,7 @@ const Reservation = () => {
         }
         if (formValid) {
             try {
-                await fetch('http://localhost:4000/reservation/create', {
+                await fetch(`${process.env.REACT_APP_BACKEND}/reservation/create`, {
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -115,15 +110,15 @@ const Reservation = () => {
                         {!nameValid
                             ? <ReservationLabel style={{ color: "red" }} >Името трябва да съдържа поне 3 символа</ReservationLabel>
                             : <ReservationLabel>Име и Фамилия:</ReservationLabel>}
-                        <ReservationInput required="true" name="name" onBlur={(e)=>validateName(e.target.value)} />
+                        <ReservationInput required name="name" onBlur={(e)=>validateName(e.target.value)} />
                         {/* guests input */}
                         <ReservationLabel>Брой гости:</ReservationLabel>
-                        <ReservationInput required="true" name="guests" type="number"></ReservationInput>
+                        <ReservationInput required name="guests" type="number"></ReservationInput>
                         {/* phone input */}
                         {!phoneValid
                             ? <ReservationLabel style={{ color: "red" }}>Моля въведете валиден телефонен номер</ReservationLabel>
                             : <ReservationLabel> Телефон: </ReservationLabel>}
-                        <ReservationInput required="true" name="phone" onBlur={(e) => validatePhone(e.target.value)} />
+                        <ReservationInput required name="phone" onBlur={(e) => validatePhone(e.target.value)} />
                         {/* email input */}
                         {/* {!emailValid
                             ? <ReservationLabel style={{ color: "red" }}>Моля въведете валиден e-mail</ReservationLabel>
@@ -137,7 +132,7 @@ const Reservation = () => {
                             ? <ReservationLabel style={{ color: "red" }}>Моля изберете предстояща или текуща дата</ReservationLabel>
                             : <ReservationLabel>Дата:</ReservationLabel>
                         }
-                        <ReservationCalendar required="true" onBlur={(e) => validateDate(e.target.value)} defaultValue={today.toLocaleDateString('en-CA')} min={today} name="date" type="date"></ReservationCalendar>
+                        <ReservationCalendar required onBlur={(e) => validateDate(e.target.value)} defaultValue={today.toLocaleDateString('en-CA')} min={today} name="date" type="date"></ReservationCalendar>
                         {/* hour */}
                         {!timeValid
                             ? <ReservationLabel style={{ color: "red" }}>Моля изберете час</ReservationLabel>
@@ -145,7 +140,7 @@ const Reservation = () => {
                         }
                         <TimeContainer>
 
-                            <ReservationHourPicker placeholder="" required="true" onChange={(e) => {
+                            <ReservationHourPicker placeholder="" required onChange={(e) => {
                                 if (!e.target.value || e.target.value == 0) {
                                     setTimeValid(false)
                                     setFormValid(false)
