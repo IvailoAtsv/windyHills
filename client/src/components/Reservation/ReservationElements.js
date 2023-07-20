@@ -159,3 +159,11 @@ font-size:1.2rem;
     padding:0.3rem;
  }
 `
+export const ResSent = styled.h1`
+font-size:4rem;
+color: white;
+text-align : center;
+font-weight:600;
+margin-top:10rem ;
+margin-bottom:10rem ;
+`

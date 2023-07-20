@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const dbConnect = require('./config/dbConfig')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
-
+require('dotenv').config()
 const app = express()
 const PORT = 4000
 const router = require('./routes')
