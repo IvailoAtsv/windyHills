@@ -9,7 +9,7 @@ export const BgContainer = styled.div`
   background-size: cover;
   height: 100vh;
   background-size:cover;
-  overflow:auto;
+  overflow:hidden;
   :before{
     filter: blur(5px);
 }

@@ -5,10 +5,10 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 require('dotenv').config()
 const app = express()
-const PORT = 4000
+const PORT = process.env.PORT
 const router = require('./routes')
 
-app.use(cors({credentials:true, origin:'http://localhost:3000'}))
+app.use(cors({credentials:true, origin:process.env.ORIGIN}))
 app.use(express.json())
 app.use(express.urlencoded({extended:true }))
 app.use(router)

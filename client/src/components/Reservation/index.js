@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ReservationContainer, ReservationAdultsChildren, ReservationHourPicker, ReservationMinPicker, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationShell, ReservationSubmit, ReservationTitle, ReservationOption, ReservationDataContainer, ReservationCalendar, TimeContainer } from "./ReservationElements"
+import { ReservationContainer, ResSent, ReservationHourPicker, ReservationMinPicker, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationShell, ReservationSubmit, ReservationTitle, ReservationOption, ReservationDataContainer, ReservationCalendar, TimeContainer } from "./ReservationElements"
 ;
 
 const Reservation = () => {
@@ -148,7 +148,7 @@ const Reservation = () => {
                                 <TimeContainer>
 
                                     <ReservationHourPicker placeholder="" required="true" onChange={(e) => {
-                                        if (!e.target.value || e.target.value == 0) {
+                                        if (!e.target.value || e.target.value === 0) {
                                             setTimeValid(false)
                                             setFormValid(false)
                                         } else {

@@ -79,7 +79,7 @@ const URL = process.env.REACT_APP_BACKEND
     }
 
     const validateName = (name) => {
-        if (name == '') {
+        if (name === '') {
             setNameValid(false)
             setFormValid(false)
         } else {
@@ -88,7 +88,7 @@ const URL = process.env.REACT_APP_BACKEND
         }
     }
     const validateImageUrl = (img) => {
-        if (img.length == 0 || img == '') {
+        if (img.length === 0 || img === '') {
             setFormValid(false)
             setImageValid(false)
         } else {
@@ -97,7 +97,7 @@ const URL = process.env.REACT_APP_BACKEND
         }
     }
     const validateDesc = (desc) => {
-        if (desc.length == 0 || desc == '') {
+        if (desc.length === 0 || desc === '') {
             setFormValid(false)
             setDescValid(false)
         } else {
@@ -107,7 +107,7 @@ const URL = process.env.REACT_APP_BACKEND
 
     }
     const validatePrice = (price) => {
-        if (price == '') {
+        if (price === '') {
             setPriceValid(false)
             setFormValid(false)
         } else {
@@ -118,7 +118,7 @@ const URL = process.env.REACT_APP_BACKEND
     }
 
     const validateWineName = (name) => {
-        if (name == '') {
+        if (name === '') {
             setWineNameValid(false)
             setWineFormValid(false)
         } else {
@@ -127,7 +127,7 @@ const URL = process.env.REACT_APP_BACKEND
         }
     }
     const validateWineImageUrl = (img) => {
-        if (img.length == 0 || img == '') {
+        if (img.length === 0 || img === '') {
             setWineFormValid(false)
             setWineImageValid(false)
         } else {
@@ -136,7 +136,7 @@ const URL = process.env.REACT_APP_BACKEND
         }
     }
     const validateWineDesc = (desc) => {
-        if (desc.length == 0 || desc == '') {
+        if (desc.length === 0 || desc === '') {
             setWineFormValid(false)
             setWineDescValid(false)
         } else {
@@ -146,7 +146,7 @@ const URL = process.env.REACT_APP_BACKEND
 
     }
     const validateWinePrice = (price) => {
-        if (price == '') {
+        if (price === '') {
             setWinePriceValid(false)
             setWineFormValid(false)
         } else {

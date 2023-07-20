@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { AdminForm, AdminInput, AdminInputContainer, AdminLabel, AdminSubmit, BgContainer } from "./AdminComponents"
-import { useHistory } from "react-router-dom"
 import AdminDashboard from "../AdminDashboard"
 import Cookie from 'universal-cookie'
 import { RedirectButton } from "../AdminDashboard/AdminDashComponents"
@@ -10,9 +9,7 @@ import { AdminTitle } from "../AdminDashboard/AdminDashComponents"
 
 const Admin = () => {
     const cookies = new Cookie()
-    const history = useHistory()
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const [cookie, setCookie] = useState()
 
     useEffect(() => {
         const currentCookie = cookies.get('auth')

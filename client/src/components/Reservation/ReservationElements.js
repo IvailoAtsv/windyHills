@@ -160,7 +160,7 @@ font-size:1.2rem;
  }
 `
 export const ResSent = styled.h1`
-font-size:4rem;
+font-size:3.5rem;
 color: white;
 text-align : center;
 font-weight:600;

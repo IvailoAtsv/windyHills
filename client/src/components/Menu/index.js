@@ -1,7 +1,3 @@
-import { MenuContainer } from "./MenuElements"
-import product1 from '../../images/food1.png';
-import product2 from '../../images/food2.png';
-import product3 from '../../images/food3.png';
 import * as Products from '../Products/ProductsElements'
 import { useEffect, useState } from "react";
 
@@ -17,15 +13,7 @@ const Menu = () => {
     }
     fetchMenu()
   }, [])
- const data =
-    {
-      img: product3,
-      alt: '',
-      name: 'Фермерска дъска 2',
-      desc: 'поднесена с колекция от подбрани регионални сирена и кашкавали',
-      price: '52.99 BGN',
-    }
-  ;
+
   return (
     <Products.ProductsContainer>
       <Products.ProductsHeading>Меню</Products.ProductsHeading>

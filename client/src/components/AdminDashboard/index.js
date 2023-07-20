@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { AdminReservationShell, AdminTitle, RedirectButton, ReservationBtn, ReservationCard, ReservationTitle } from "./AdminDashComponents"
+import { AdminReservationShell, ReservationBtn, ReservationCard, ReservationTitle } from "./AdminDashComponents"
 import Cookie from 'universal-cookie'
 
 

@@ -5,10 +5,8 @@ import {
   CloseIcon,
   SidebarMenu,
   SidebarLink,
-  SidebarRoute,
   SideBtnWrap
 } from './SidebarElements';
-import Reservation from '../Reservation';
 
 const Sidebar = ({ isOpen, toggle }) => {
  

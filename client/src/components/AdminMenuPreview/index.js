@@ -2,15 +2,12 @@ import { useEffect, useState } from 'react';
 import {
   ProductsContainer,
   ProductWrapper,
-  ProductsHeading,
   ProductTitle,
   ProductCard,
   ProductImg,
   ProductInfo,
   ProductDesc,
   ProductPrice,
-  ProductButton,
-  RedirectButton,
   DelBtn
 } from '../Products/ProductsElements';
 import Cookie from 'universal-cookie'
@@ -22,7 +19,7 @@ const AdminMenuPreview = () => {
 
   const cookies = new Cookie()
 
-  const URL = 'http://localhost:4000/menu'
+  const URL = process.env.REACT_APP_BACKEND
   const wineURL = `${URL}/drinks`
   const [menu, setMenu] = useState([])
   const [drinks,setDrinks] = useState([])

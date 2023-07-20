@@ -9,15 +9,13 @@ import {
     ProductInfo,
     ProductDesc,
     ProductPrice,
-    ProductButton,
     RedirectButton,
-    DelBtn,
 } from '../Products/ProductsElements'
 
 
 const DrinksMenu = () => {
 
-    const URL = process.env.REACT_APP_BACKEND
+    const URL = process.env.REACT_APP.BACKEND
     const [menu,setMenu] = useState([])
   
     useEffect(() => {

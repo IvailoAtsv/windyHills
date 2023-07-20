@@ -9,7 +9,6 @@ import {
   ProductInfo,
   ProductDesc,
   ProductPrice,
-  ProductButton,
   RedirectButton
 } from './ProductsElements';
 
