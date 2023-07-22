@@ -17,7 +17,7 @@ function App() {
 			<Route exact path="/">
 				<GlobalStyle />
 				<Hero />
-				<Products heading='Предложения от нашата кухня' data={productData} />
+				<Products />
 				<Feature />
 				<Reservation />
 				<Footer />

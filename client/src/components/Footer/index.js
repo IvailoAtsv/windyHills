@@ -17,8 +17,6 @@ const handleClickScroll = () => {
   const element = document.getElementById('hero')
   if(element){
     element.scrollIntoView({ behavior: "smooth"})
-  }else{
-    console.log('ne brat ne stava');
   }
 }
 

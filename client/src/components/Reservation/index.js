@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ReservationContainer, ResSent, ReservationHourPicker, ReservationMinPicker, ReservationInput, ReservationInputContainer, ReservationLabel, ReservationShell, ReservationSubmit, ReservationTitle, ReservationOption, ReservationDataContainer, ReservationCalendar, TimeContainer } from "./ReservationElements"
-;
+    ;
 
 const Reservation = () => {
     const [timeValid, setTimeValid] = useState(true)
@@ -11,6 +11,10 @@ const Reservation = () => {
     const [formValid, setFormValid] = useState(false)
 
     const [resSent, setResSent] = useState(false)
+    const dateRef = useRef()
+    const handleFocus = () => {
+        dateRef.current.showPicker()
+    }
     //post req
     const onSubmitHandler = async (e) => {
 
@@ -139,7 +143,7 @@ const Reservation = () => {
                                     ? <ReservationLabel style={{ color: "red" }}>Моля изберете предстояща или текуща дата</ReservationLabel>
                                     : <ReservationLabel>Дата:</ReservationLabel>
                                 }
-                                <ReservationCalendar required="true" onBlur={(e) => validateDate(e.target.value)} defaultValue={today.toLocaleDateString('en-CA')} min={today} name="date" type="date"></ReservationCalendar>
+                                <ReservationCalendar required="true" ref={dateRef} onClick={handleFocus} onChange={(e) => validateDate(e.target.value)} defaultValue={today.toLocaleDateString('en-CA')} min={today} name="date" type="date"></ReservationCalendar>
                                 {/* hour */}
                                 {!timeValid
                                     ? <ReservationLabel style={{ color: "red" }}>Моля изберете час</ReservationLabel>

@@ -12,7 +12,7 @@ import {
   RedirectButton
 } from './ProductsElements';
 
-const Products = ({ data }) => {
+const Products = () => {
   const URL = 'http://localhost:4000/menu'
   const [menu,setMenu] = useState([])
   useEffect(() => {

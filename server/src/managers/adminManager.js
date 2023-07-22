@@ -21,7 +21,7 @@ exports.login = async (admin, password) => {
         _id: currentAdmin._id,
         admin: currentAdmin.admin
     }
-    const token = jwt.sign(payload, secret, {expiresIn: '2d'})
+    const token = jwt.sign(payload, secret, {expiresIn: '2h'})
 
     return token
 }
