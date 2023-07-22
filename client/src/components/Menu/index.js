@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const Menu = () => {
 
-  const URL = process.env.REACT_APP_BACKEND
+  const URL = `${process.env.REACT_APP_BACKEND}/menu`
   const [menu,setMenu] = useState([])
 
   useEffect(() => {

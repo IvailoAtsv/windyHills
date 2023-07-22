@@ -12,10 +12,6 @@ const ReservationSchema = new mongoose.Schema({
         min:[10,'phone must be at least 10 characters long']
 
     },
-    email:{
-        type:String,
-        required: [true, 'email is required']
-    },
     guests:{
         type:Number,
         required: [true, 'guests number is required'],

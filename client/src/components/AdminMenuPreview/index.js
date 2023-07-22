@@ -19,14 +19,14 @@ const AdminMenuPreview = () => {
 
   const cookies = new Cookie()
 
-  const URL = process.env.REACT_APP_BACKEND
+  const URL = `${process.env.REACT_APP_BACKEND}`
   const wineURL = `${URL}/drinks`
   const [menu, setMenu] = useState([])
   const [drinks,setDrinks] = useState([])
 
   useEffect(() => {
     const fetchMenu = async () => {
-      const result = await fetch(URL)
+      const result = await fetch(`${URL}/menu`)
       return result.json().then(json => setMenu(json))
     }
     const fetchWineMenu = async () => {

@@ -18,9 +18,10 @@ router.post('/delete', isAuth, async (req, res) => {
     res.end()
 })
 router.get('/', async (req, res) => {
-    console.log('it works');
     const menu = await foodManager.getMenu()
+    console.log(menu);
     res.json(menu)
     res.end()
+    
 })
 module.exports = router 

@@ -2,6 +2,7 @@ const FoodItem = require('../models/FoodItem')
 
 exports.getMenu = () => {
     const result = FoodItem.find({})
+    console.log(result);
     return result
 }
 exports.create = async (itemData) => {
