@@ -67,13 +67,14 @@ export const HeroH1 = styled.h1`
 `;
 
 export const HeroP = styled.p`
-  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   margin-bottom: 2rem;
 `;
 
 export const HeroBtn = styled.button`
   border-radius:8px;
   font-size: 1.2rem;
+  font-weight:500;
   padding: 0.5rem;
   border: none;
   background:white ;

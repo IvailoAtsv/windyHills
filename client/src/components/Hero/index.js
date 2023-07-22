@@ -34,7 +34,7 @@ const Hero = () => {
         <Sidebar isOpen={isOpen} toggle={toggle} />
         <HeroContent>
           <HeroItems>
-            <HeroH1>Windy Hills</HeroH1>
+            <HeroH1>Windy Hills Chateau</HeroH1>
             <HeroP>Wine and fine dining</HeroP>
             <HeroBtn onClick={handleClickScroll}>Направете Резервация</HeroBtn>
           </HeroItems>
