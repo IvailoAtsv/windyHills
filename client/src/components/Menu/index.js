@@ -1,5 +1,6 @@
 import * as Products from '../Products/ProductsElements'
 import { useEffect, useState } from "react";
+import { MenuCard, MenuImg, MenuWrapper } from './MenuElements';
 
 const Menu = () => {
 
@@ -14,23 +15,23 @@ const Menu = () => {
     fetchMenu()
   }, [])
 
-  return (
+  return ( 
     <Products.ProductsContainer>
       <Products.ProductsHeading>Меню</Products.ProductsHeading>
-      <Products.ProductWrapper>
+      <MenuWrapper>
         {menu.map((product, index) => {
           return (
-            <Products.ProductCard key={index}>
-              <Products.ProductImg src={product.imageUrl} alt={product.name} />
+            <MenuCard key={index}>
+              <MenuImg src={product.imageUrl} alt={product.name} />
               <Products.ProductInfo>
                 <Products.ProductTitle>{product.name}</Products.ProductTitle>
                 <Products.ProductDesc>{product.description}</Products.ProductDesc>
                 <Products.ProductPrice>{product.price}</Products.ProductPrice>
               </Products.ProductInfo>
-            </Products.ProductCard>
+            </MenuCard>
           );
         })}
-      </Products.ProductWrapper>
+      </MenuWrapper>
       <Products.RedirectButton to='/'>Обратно</Products.RedirectButton>
     </Products.ProductsContainer>
 

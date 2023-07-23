@@ -13,7 +13,6 @@ export const FeatureContainer = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   gap: 4rem;

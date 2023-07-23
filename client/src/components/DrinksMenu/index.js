@@ -1,16 +1,6 @@
 import { useEffect, useState } from 'react'
-import {
-    ProductsContainer,
-    ProductWrapper,
-    ProductsHeading,
-    ProductTitle,
-    ProductCard,
-    ProductImg,
-    ProductInfo,
-    ProductDesc,
-    ProductPrice,
-    RedirectButton,
-} from '../Products/ProductsElements'
+import * as Products from '../Products/ProductsElements'
+import { MenuCard, MenuImg, MenuWrapper } from '../Menu/MenuElements'
 
 
 const DrinksMenu = () => {
@@ -27,24 +17,24 @@ const DrinksMenu = () => {
     }, [])
 
     return (
-        <ProductsContainer>
-        <ProductsHeading>Меню</ProductsHeading>
-        <ProductWrapper>
-          {menu.map((product, index) => {
-            return (
-              <ProductCard key={index}>
-                <ProductImg src={product.imageUrl} alt={product.name} />
-                <ProductInfo>
-                  <ProductTitle>{product.name}</ProductTitle>
-                  <ProductDesc>{product.description}</ProductDesc>
-                  <ProductPrice>{product.price}</ProductPrice>
-                </ProductInfo>
-              </ProductCard>
-            );
-          })}
-        </ProductWrapper>
-        <RedirectButton to='/'>Обратно</RedirectButton>
-      </ProductsContainer>
+      <Products.ProductsContainer>
+      <Products.ProductsHeading>Меню</Products.ProductsHeading>
+      <MenuWrapper>
+        {menu.map((product, index) => {
+          return (
+            <MenuCard key={index}>
+              <MenuImg src={product.imageUrl} alt={product.name} />
+              <Products.ProductInfo>
+                <Products.ProductTitle>{product.name}</Products.ProductTitle>
+                <Products.ProductDesc>{product.description}</Products.ProductDesc>
+                <Products.ProductPrice>{product.price}</Products.ProductPrice>
+              </Products.ProductInfo>
+            </MenuCard>
+          );
+        })}
+      </MenuWrapper>
+      <Products.RedirectButton to='/'>Обратно</Products.RedirectButton>
+    </Products.ProductsContainer>
 
     )
 }

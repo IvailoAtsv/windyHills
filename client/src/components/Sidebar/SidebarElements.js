@@ -5,8 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 export const SidebarContainer = styled.aside`
   position: fixed;
   z-index: 999;
-  min-width: 25%;
-  max-width: 35%;
+  width: 25vw;
   height: 100%;
   background: white;
   display: grid;
@@ -15,7 +14,7 @@ export const SidebarContainer = styled.aside`
   transition: 0.35s ease-out;
   right: ${({ isOpen }) => (isOpen ? '0' : '-1000px')};
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 600px) {
     width: 100%;
   }
 `;
@@ -40,7 +39,7 @@ export const SidebarMenu = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 80px);
   text-align: center;
-
+  gap:1.5rem;
   @media screen and (max-width: 480px) {
     grid-template-rows: repeat(3, 60px);
   }
@@ -50,18 +49,19 @@ export const SidebarLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-decoration: none;
   list-style: none;
   border-radius: 7px;
-  
+  font-weight:bold;
+  font-family: 'Kanit, sans-serif';
   background-color: white;
   transition: 0.2s ease-in-out;
   color: #000;
   cursor: pointer;
 
   &:hover {
-    font-size: 1.6rem;
+    font-size: 2.1rem;
     transition: 0.3s ease-in-out;
   }
 `;

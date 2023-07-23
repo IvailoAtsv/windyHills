@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.footer`
   background-color: #0d0909;
-  width:100%
+  width:100%;
+  display:flex;
+  justify-content:space-evenly;
+  gap:2rem;
+
 `;
 
 export const FooterWrap = styled.div`
@@ -12,9 +16,12 @@ export const FooterWrap = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap:3rem;
-  max-width:60%
+  gap:5rem;
+  width:100%
   margin: 0 auto;
+  @media screen and (max-width: 820px) {
+    flex-direction: column;
+  }
 `;
 
 export const SocialMedia = styled.section`
@@ -34,25 +41,59 @@ export const SocialMediaWrap = styled.div`
 `;
 
 export const ContactDiv = styled.div`
-width:30vw;
+width:40%;
 height:100%
-display:flex;
-gap:1.5rem;
-flex-direction:column;
 text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:flex-start;
+gap:1rem;
+@media screen and (max-width: 820px) {
+  width:80%;
+}
+`
+export const LinkContainer = styled.div`
+width:40%;
+height:100%
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:justify;
+gap:1rem;
+@media screen and (max-width: 820px) {
+  width:80%;
+}
+`
+export const LogoContainer = styled.div`
+width:40%;
+height:100%
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+@media screen and (max-width: 820px) {
+  width:80%;
+}
 `
 export const Heading = styled.h1`
 color:white;
 padding-bottom:1rem;
+text-align:center;
 `
 export const ContactA = styled.a`
 color:white;
 text-decoration:none;
 `
 
-export const ContactH3 = styled.h3`
+export const ContactPairDiv = styled.h3`
+display:flex;
+justify-content:center;
+align-items:center;
+gap:1rem;
 color:white;
-font-size:1.2rem;
 font-weight:500;
 `
 
@@ -63,18 +104,17 @@ export const SocialLogo = styled(Link)`
   text-decoration: none;
   font-size: 2rem;
   display: flex;
-  padding-left:15rem;
   align-items: center;
-  margin-bottom: 16px;
   font-weight: bold;
 `;
 
 export const SocialIcons = styled.div`
+width:100%;
   display: flex;
-  justify-content: center;
-  gap:1rem;
+  justify-content: flex-start;
+  gap:1.5rem;
   align-items: center;
-
+  margin-top:1rem;
 `;
 
 export const SocialIconLink = styled.a`
@@ -82,19 +122,13 @@ export const SocialIconLink = styled.a`
   font-size: 24px;
 `;
 
-export const LinkContainer = styled.div`
-width:30vw;
-height:100%
-display:flex;
-flex-direction: column;
-gap:2rem;
-text-align:center;
-`
+
 
 export const FooterLink = styled(Link)`
 color:white;
-font-size:1.2rem;
+height:100%;
+padding-left:3rem;
 text-decoration: none;
 cursor: pointer;
-
+font-weight:500;
 `

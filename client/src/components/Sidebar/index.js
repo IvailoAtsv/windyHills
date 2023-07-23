@@ -20,7 +20,7 @@ const Sidebar = ({ isOpen, toggle }) => {
       <SidebarMenu>
         <SidebarLink to='/menu'>Меню</SidebarLink>
         <SidebarLink to='/'>Контакти</SidebarLink>
-        <SidebarLink to='/'>За Нас</SidebarLink>
+        <SidebarLink to='/about-us'>За Нас</SidebarLink>
       </SidebarMenu>
 
       <SideBtnWrap>
