@@ -4,8 +4,9 @@ import {
   FaInstagram,
   FaPhone,
   FaLocationArrow,
+  FaInfo
 } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md'
+import { MdEmail, MdHotel, MdPhotoLibrary } from 'react-icons/md'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import {
   FooterContainer,
@@ -23,6 +24,7 @@ import {
   LinkContainer,
   ContactPairDiv,
   LogoContainer,
+  LinkPairDiv,
 } from './FooterElements';
 
 const handleClickScroll = () => {
@@ -60,17 +62,17 @@ const Footer = ({ currentPage }) => {
 
         <LinkContainer>
           <Heading>Полезно</Heading>
-          <h3><ContactA style={{ padding: '3rem' }} href="https://grabo.bg/places/chateau-windy-hills">Хотел</ContactA></h3>
-          {currentPage === 'about-us' ?
-            <h3><FooterLink to="/">Начало</FooterLink></h3>
-            :
-            <h3><FooterLink to="/about-us/">За нас</FooterLink></h3>
+          <LinkPairDiv><MdHotel /><ContactA href="https://grabo.bg/places/chateau-windy-hills">Хотел</ContactA></LinkPairDiv>
+          {currentPage === 'about-us'
+            ? <LinkPairDiv><MdHotel /><FooterLink to="/">Начало</FooterLink></LinkPairDiv>
+            : <LinkPairDiv><FaInfo /><FooterLink to="/about-us/">За Нас</FooterLink></LinkPairDiv>
           }
           {currentPage === 'gallery'
-            ?<h3><FooterLink to="/">Начало</FooterLink></h3>
-            :<h3><FooterLink to="/gallery/">Галерия</FooterLink></h3>
-      }
-          
+            ? <LinkPairDiv><MdHotel /><FooterLink to="/">Начало</FooterLink></LinkPairDiv>
+            : <LinkPairDiv><MdPhotoLibrary /><FooterLink to="/gallery/">Галерия</FooterLink></LinkPairDiv>
+
+          }
+
 
         </LinkContainer>
 

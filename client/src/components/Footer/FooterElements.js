@@ -60,7 +60,7 @@ text-align:center;
 display:flex;
 flex-direction:column;
 justify-content:center;
-align-items:justify;
+align-items:flex-start;
 gap:1rem;
 @media screen and (max-width: 820px) {
   width:80%;
@@ -86,6 +86,7 @@ text-align:center;
 export const ContactA = styled.a`
 color:white;
 text-decoration:none;
+padding:0;
 `
 
 export const ContactPairDiv = styled.h3`
@@ -93,6 +94,15 @@ display:flex;
 justify-content:center;
 align-items:center;
 gap:1rem;
+color:white;
+font-weight:500;
+`
+export const LinkPairDiv = styled.h3`
+display:flex;
+justify-content:center;
+align-items:center;
+gap:1rem;
+padding-left:.5rem;
 color:white;
 font-weight:500;
 `
@@ -127,7 +137,6 @@ export const SocialIconLink = styled.a`
 export const FooterLink = styled(Link)`
 color:white;
 height:100%;
-padding-left:3rem;
 text-decoration: none;
 cursor: pointer;
 font-weight:500;

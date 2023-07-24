@@ -18,7 +18,7 @@ const Products = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       const result = await fetch(URL)
-      return result.json().then(json => setMenu(json))
+      return result.json().then(json => setMenu(json.sort(() => 0.5 - Math.random()).slice(0,3)))
     }
     fetchMenu()
   }, [])
