@@ -64,6 +64,7 @@ export const HeroH1 = styled.h1`
   margin-bottom: 1rem;
   box-shadow:none;
   letter-spacing: 3px;
+  text-shadow: 3px 3px #000000;
 `;
 
 export const HeroP = styled.p`

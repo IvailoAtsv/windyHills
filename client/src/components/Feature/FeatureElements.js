@@ -26,6 +26,7 @@ export const FeatureContainer = styled.div`
   }
   h1 {
     font-size: clamp(3rem, 5vw, 5rem);
+    text-shadow: 3px 3px #000000;
   }
 
   p {

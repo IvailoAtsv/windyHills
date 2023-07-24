@@ -2,14 +2,17 @@ import styled from "styled-components";
 
 export const MenuWrapper = styled.div`
 width:100%;
-display:grid;
-grid-template-columns: repeat(2, 1fr);
+height:100%;
+display:flex;
+align-items:center;
+flex-flow:row wrap;
+justiy-content:space-between;
 
 @media only screen and (max-width:1000px){
   display:flex;
   flex-direction:column;
   align-items:center;
-  justiy-content:center;
+  justiy-content:space-between;
 }
 `
 export const MenuCard = styled.div`
