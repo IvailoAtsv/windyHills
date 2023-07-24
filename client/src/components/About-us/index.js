@@ -5,10 +5,13 @@ import windyRest from '../../images/windy-rest.jpg'
 import rose from '../../images/rose.jpg'
 import cabernet from '../../images/cabernet.jpg'
 import merlot from '../../images/merlot.jpg'
-
+import mavrud from '../../images/mavrud.jpg'
+import merlotawrd from '../../images/merlotawrd.jpg'
+import Footer from "../Footer"
 const About = () => {
 
     return (
+        <>
         <MainContainer>
             <NavBar >
             </NavBar>
@@ -52,6 +55,8 @@ const About = () => {
                     <AwardImg src={merlot}/>
                     <AwardImg src={cabernet}/>
                     <AwardImg src={rose}/>
+                    <AwardImg src={mavrud}/>
+                    <AwardImg src={merlotawrd}/>
                 </AwardsContainer>
                 <ParagraphPair>
 
@@ -70,6 +75,8 @@ const About = () => {
                 </ParagraphPair>
             </Article>
         </MainContainer>
+			<Footer currentPage='about-us'/>
+</>
     )
 }
 export default About

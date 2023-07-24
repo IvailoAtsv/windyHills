@@ -10,6 +10,7 @@ import Admin from './components/Admin';
 import Menu from './components/Menu'
 import DrinksMenu from './components/DrinksMenu';
 import About from './components/About-us';
+import Gallery from './components/Gallery';
 
 function App() {
 	return (
@@ -21,28 +22,30 @@ function App() {
 				<Feature />
 				<Reservation />
 				<Footer />
+
 			</Route>
 			<Route path="/admin">
 				<GlobalStyle />
 				<Admin />
-				
+
 			</Route >
 			<Route exact path="/menu">
 				<GlobalStyle />
 				<Menu />
-				<Footer />
 
 			</Route>
 			<Route path="/drinks">
-			<GlobalStyle />
-			<DrinksMenu />
-			<Footer />
+				<GlobalStyle />
+				<DrinksMenu />
 
 			</Route>
 			<Route path="/about-us">
-			<GlobalStyle />
-			<About />
-			<Footer />
+				<GlobalStyle />
+				<About />
+			</Route>
+			<Route path="/gallery">
+				<GlobalStyle />
+				<Gallery />
 			</Route>
 		</Router>
 	);
