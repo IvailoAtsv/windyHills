@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import windy from '../../images/windyhill.jpg'
+import windy from '../../images/windyMain.jpeg'
 import { Link } from 'react-router-dom';
 
 const mainColor = '#white'
@@ -15,16 +15,17 @@ justify-content:center;
 
 export const BgContainer = styled.div`
     background: url(${windy});
-    height: 60vh;
+    height:70vh;
     width:100%;
     background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-position: bottom;
     background-size: cover;
-   
+    display:flex;
+    padding-bottom:5rem;
+    justify-content:center;
+    align-items:center;
         @media only screen and (max-width:720px){
         background-attachment: scroll;
-
         }
 
 `
@@ -40,6 +41,9 @@ color:${textColor};
 text-decoration:none;
 font-size: clamp(3rem, 10vw, 5rem);
 font-weight:bold;
+color:white;
+text-shadow: 3px 3px #000000;
+
   padding:2rem;
   box-shadow:none;
   letter-spacing: 3px;
@@ -61,14 +65,14 @@ gap:2rem;
   }
 `
 export const Title = styled.h1`
-font-size: clamp(2rem, 5vw, 3rem);
+font-size: clamp(2.5rem, 5vw, 3rem);
 padding-bottom:5rem;
 `
 export const Paragraph = styled.p`
 width:40%;
 text-align:justify;
 font-size:1.5rem;
-margin-top:2rem;
+margin-bottom:2rem;
 @media only screen and (max-width:1000px){
     width:80%;
     }
@@ -77,7 +81,7 @@ export const ParagraphPair = styled.div`
 display:flex;
 justify-content:space-evenly;
 align-items:center;
-margin-bottom:2rem;
+margin-bottom:3rem;
 @media only screen and (max-width:1000px){
     flex-direction:column;
   
@@ -87,6 +91,7 @@ export const ParagraphImg = styled.img`
 aspect-ratio: 1 / 1;
 width:40rem;
 height:auto;
+margin-top:2rem;
 border-radius:50%;
 border:solid 1rem #dcdcdc;
 @media only screen and (max-width:1000px){
