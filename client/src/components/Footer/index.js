@@ -4,20 +4,18 @@ import {
   FaInstagram,
   FaPhone,
   FaLocationArrow,
-  FaInfo
+  FaInfo,
+  FaRegCalendarAlt,
 } from 'react-icons/fa';
-import { MdEmail, MdHotel, MdPhotoLibrary } from 'react-icons/md'
-import { FaRegCalendarAlt } from 'react-icons/fa'
+import { BsFillHouseFill } from 'react-icons/bs'
+import { MdEmail, MdHotel, MdPhotoLibrary, MdOutlineHouse } from 'react-icons/md'
 import {
   FooterContainer,
   FooterWrap,
-  SocialMedia,
-  SocialMediaWrap,
   SocialLogo,
   SocialIcons,
   SocialIconLink,
   ContactDiv,
-  ContactH3,
   Heading,
   ContactA,
   FooterLink,
@@ -64,11 +62,11 @@ const Footer = ({ currentPage }) => {
           <Heading>Полезно</Heading>
           <LinkPairDiv><MdHotel /><ContactA href="https://grabo.bg/places/chateau-windy-hills">Хотел</ContactA></LinkPairDiv>
           {currentPage === 'about-us'
-            ? <LinkPairDiv><MdHotel /><FooterLink to="/">Начало</FooterLink></LinkPairDiv>
+            ? <LinkPairDiv><BsFillHouseFill /><FooterLink to="/">Начало</FooterLink></LinkPairDiv>
             : <LinkPairDiv><FaInfo /><FooterLink to="/about-us/">За Нас</FooterLink></LinkPairDiv>
           }
           {currentPage === 'gallery'
-            ? <LinkPairDiv><MdHotel /><FooterLink to="/">Начало</FooterLink></LinkPairDiv>
+            ? <LinkPairDiv><BsFillHouseFill /><FooterLink to="/">Начало</FooterLink></LinkPairDiv>
             : <LinkPairDiv><MdPhotoLibrary /><FooterLink to="/gallery/">Галерия</FooterLink></LinkPairDiv>
 
           }
