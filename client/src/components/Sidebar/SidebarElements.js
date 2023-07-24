@@ -35,14 +35,13 @@ export const Icon = styled.div`
 `;
 
 export const SidebarMenu = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 80px);
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:2.5rem;
   text-align: center;
-  gap:1.5rem;
-  @media screen and (max-width: 480px) {
-    grid-template-rows: repeat(3, 60px);
-  }
+ 
 `;
 
 export const SidebarLink = styled(Link)`

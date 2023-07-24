@@ -35,8 +35,8 @@ text-align:center;
 }
 `
 export const GalleryImg = styled.img`
-max-width:300px;
-height:auto;
+height:300px;
+width:auto !important;
 object-fit:contain;
 margin:1rem 1rem 0 0;
 border:solid 5px #dcdcdc;

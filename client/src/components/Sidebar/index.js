@@ -26,8 +26,10 @@ const Sidebar = ({ isOpen, toggle }) => {
       </Icon>
       <SidebarMenu>
         <SidebarLink to='/menu'>Меню</SidebarLink>
+        <SidebarLink to='/drinks'>Напитки</SidebarLink>
         <SidebarLink to='#' onClick={handleClickScroll}>Контакти</SidebarLink>
         <SidebarLink to='/about-us'>За Нас</SidebarLink>
+        <SidebarLink to='/gallery'>Галерия</SidebarLink>
       </SidebarMenu>
 
       <SideBtnWrap>
