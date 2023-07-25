@@ -22,15 +22,29 @@ import img19 from './gallery/img19.jpg'
 import img20 from './gallery/img20.jpg'
 import img21 from './gallery/img21.jpg'
 import { MdArrowBack } from 'react-icons/md'
+import Sidebar from "../Sidebar"
+import Navbar from "../Navbar"
+import { useState } from "react"
+
 const Gallery = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => {
+      setIsOpen(!isOpen);
+    };
+    const handleClickScroll = () => {
+      const element = document.getElementById('reservation')
+      if(element){
+        element.scrollIntoView({ behavior: "smooth"})
+      }
+    }
       const images = [img21,img2,img3,img19,img4,img5,img6,img7,img8,img9,img10,img11,img12,img17,img18,img13,img14,img15,img16,img20,img1]
     return(
         <>
         <GalleryContainer>
-            <GalleryNav>
-            <GalleryBack to="/"><MdArrowBack/></GalleryBack>
+        <Navbar toggle={toggle} />
+        <Sidebar isOpen={isOpen} toggle={toggle} currentPage='gallery' />
         <GalleryTitle>Галерия</GalleryTitle>
-            </GalleryNav>
         <ImgContainer>
         {images.map((image, index) => <GalleryImg key={index} src={image} loading="lazy"/>)}
         

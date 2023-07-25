@@ -8,13 +8,13 @@ import {
   SideBtnWrap
 } from './SidebarElements';
 
-const Sidebar = ({ isOpen, toggle }) => {
- 
+const Sidebar = ({ isOpen, toggle, currentPage }) => {
+
   const handleClickScroll = () => {
     const element = document.getElementById('footer')
-    if(element){
-      element.scrollIntoView({ behavior: "smooth"})
-    }else{
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    } else {
       console.log('ne brat ne stava');
     }
   }
@@ -25,11 +25,21 @@ const Sidebar = ({ isOpen, toggle }) => {
         <CloseIcon />
       </Icon>
       <SidebarMenu>
+        {
+          currentPage === 'about'
+            ? <SidebarLink to='/'>Начало</SidebarLink>
+            : <SidebarLink to='/about-us'>За Нас</SidebarLink>
+
+        }
+        {
+          currentPage === 'gallery'
+            ? <SidebarLink to='/'>Начало</SidebarLink>
+            : <SidebarLink to='/gallery'>Галерия</SidebarLink>
+
+        }
+        <SidebarLink to='#' onClick={handleClickScroll}>Контакти</SidebarLink>
         <SidebarLink to='/menu'>Меню</SidebarLink>
         <SidebarLink to='/drinks'>Напитки</SidebarLink>
-        <SidebarLink to='#' onClick={handleClickScroll}>Контакти</SidebarLink>
-        <SidebarLink to='/about-us'>За Нас</SidebarLink>
-        <SidebarLink to='/gallery'>Галерия</SidebarLink>
       </SidebarMenu>
 
       <SideBtnWrap>

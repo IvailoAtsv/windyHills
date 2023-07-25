@@ -47,10 +47,9 @@ border:solid 5px #dcdcdc;
   }
 `
 export const GalleryTitle = styled.h1`
-text-align:center;
 font-size: clamp(3rem, 10vw, 5rem);
-position:absolute;
-left:37%
+text-align:center;
+vertical-align:top;
 `
 export const ImgContainer = styled.div`
 width:100%;

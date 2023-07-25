@@ -5,7 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 export const SidebarContainer = styled.aside`
   position: fixed;
   z-index: 999;
-  width: 25vw;
+  width: 25%;
   height: 100%;
   background: white;
   display: grid;
@@ -14,7 +14,7 @@ export const SidebarContainer = styled.aside`
   transition: 0.35s ease-out;
   right: ${({ isOpen }) => (isOpen ? '0' : '-1000px')};
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 720px) {
     width: 100%;
   }
 `;
@@ -27,8 +27,6 @@ export const Icon = styled.div`
   position: absolute;
   top: 1.2rem;
   right: 1.5rem;
-  background: transparent;
-  border: transparent;
   font-size: 2rem;
   cursor: pointer;
   outline: none;
