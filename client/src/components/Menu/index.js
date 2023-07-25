@@ -1,6 +1,6 @@
 import * as Products from '../Products/ProductsElements'
 import { useEffect, useState } from "react";
-import { MenuCard, MenuImg, MenuWrapper } from './MenuElements';
+import { MenuCard, MenuContainer, MenuImg, MenuWrapper } from './MenuElements';
 
 const Menu = () => {
 
@@ -16,7 +16,7 @@ const Menu = () => {
   }, [])
 
   return ( 
-    <Products.ProductsContainer>
+    <MenuContainer>
       <Products.ProductsHeading>Меню</Products.ProductsHeading>
       <MenuWrapper>
         {menu.map((product, index) => {
@@ -33,7 +33,7 @@ const Menu = () => {
         })}
       </MenuWrapper>
       <Products.RedirectButton to='/'>Обратно</Products.RedirectButton>
-    </Products.ProductsContainer>
+    </MenuContainer>
 
   )
 }

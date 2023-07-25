@@ -51,7 +51,6 @@ console.log(reservations);
                 <ReservationTitle>Име: {reservation.name}</ReservationTitle>
                 <ReservationTitle>Телефон: {reservation.phone}</ReservationTitle>
                 <ReservationTitle>Брой гости:{reservation.guests}</ReservationTitle>
-                <ReservationTitle>Е-мейл: {reservation.email}</ReservationTitle>
                 <ReservationTitle>Детайли: {reservation.details}</ReservationTitle>
                 <ReservationTitle>Час: {reservation.hours}: {reservation.minutes}</ReservationTitle>
                 <ReservationTitle>Дата: {reservation.date.split('-').reverse().join('-')}</ReservationTitle>
